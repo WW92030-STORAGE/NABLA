@@ -1,0 +1,160 @@
+[gd_scene load_steps=11 format=3 uid="uid://borsycevvvxee"]
+
+[ext_resource type="Script" path="res://redstone/RedstonePiston.gd" id="1_6pnue"]
+[ext_resource type="Texture2D" uid="uid://chbellj35qnf7" path="res://sprites/Redstone/piston/piston_normal.png" id="2_iswwn"]
+[ext_resource type="Texture2D" uid="uid://ctyvs2ebv18xm" path="res://sprites/Redstone/piston/piston_neck_normal.png" id="2_v0m44"]
+[ext_resource type="Texture2D" uid="uid://cof00a5nfnnfp" path="res://sprites/Redstone/piston/pistonbase.png" id="3_pvl7g"]
+[ext_resource type="Texture2D" uid="uid://b1f7xfqe12r3c" path="res://sprites/Cyan_Outline.png" id="4_i87j8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b32f"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhq5o"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cu1e"]
+size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyu2x"]
+size = Vector2(17, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr5qf"]
+size = Vector2(14, 14)
+
+[node name="RedstonePiston" type="CharacterBody2D"]
+script = ExtResource("1_6pnue")
+
+[node name="Neck" type="Sprite2D" parent="."]
+position = Vector2(6, 0)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_v0m44")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7b32f")
+
+[node name="PistonHead" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_iswwn")
+
+[node name="PistonHeadCollision" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, 8.63074e-13)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_mhq5o")
+
+[node name="PistonBase" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_pvl7g")
+
+[node name="RedstonePistonArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedstonePistonArea"]
+shape = SubResource("RectangleShape2D_2cu1e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RedstonePistonArea"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_pyu2x")
+
+[node name="FrontArea" type="Area2D" parent="."]
+visible = false
+position = Vector2(16, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="Sprite2D" type="Sprite2D" parent="FrontArea/CollisionShape2D"]
+visible = false
+position = Vector2(1.19209e-07, -2.38419e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_i87j8")
+
+[node name="FrontArea2" type="Area2D" parent="."]
+visible = false
+position = Vector2(32, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea2"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea3" type="Area2D" parent="."]
+visible = false
+position = Vector2(48, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea3"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea4" type="Area2D" parent="."]
+visible = false
+position = Vector2(64, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea4"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea5" type="Area2D" parent="."]
+visible = false
+position = Vector2(80, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea5"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea6" type="Area2D" parent="."]
+visible = false
+position = Vector2(96, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea6"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea7" type="Area2D" parent="."]
+visible = false
+position = Vector2(112, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea7"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea8" type="Area2D" parent="."]
+visible = false
+position = Vector2(128, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea8"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea9" type="Area2D" parent="."]
+visible = false
+position = Vector2(144, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea9"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea10" type="Area2D" parent="."]
+visible = false
+position = Vector2(160, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea10"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea11" type="Area2D" parent="."]
+visible = false
+position = Vector2(176, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea11"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea12" type="Area2D" parent="."]
+visible = false
+position = Vector2(192, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea12"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
