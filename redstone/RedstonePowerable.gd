@@ -19,7 +19,7 @@ func _process(delta):
 				overlap = true
 			if (object.name.substr(0, 14) == "PressureArea2D"):
 				overlap = false
-				print(object.name)
+				# print(object.name)
 			if (object.name.substr(0, 21) == "RedstoneDiodeOutArea"):
 				setpower = max(setpower, object.find_parent("*").power)
 			elif (object.name.substr(0, 23) == "RedstoneInverterOutArea"):

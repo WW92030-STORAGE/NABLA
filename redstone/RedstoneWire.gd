@@ -35,7 +35,7 @@ func _process(delta):
 	
 	for object in $RedstoneWireX.get_overlapping_areas():
 		if (object.name.substr(0, 14) == "PressureSensor"):
-			setpower = object.find_parent("*").power
+			setpower = max(setpower, object.find_parent("*").power)
 	
 	power = setpower
 			

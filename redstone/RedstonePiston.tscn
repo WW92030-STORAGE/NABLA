@@ -13,16 +13,17 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cu1e"]
-size = Vector2(14, 20)
+size = Vector2(12, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyu2x"]
-size = Vector2(17, 14)
+size = Vector2(16, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr5qf"]
 size = Vector2(14, 14)
 
 [node name="RedstonePiston" type="CharacterBody2D"]
 script = ExtResource("1_6pnue")
+metadata/sticky = false
 
 [node name="Neck" type="Sprite2D" parent="."]
 position = Vector2(6, 0)
@@ -54,7 +55,7 @@ texture = ExtResource("3_pvl7g")
 shape = SubResource("RectangleShape2D_2cu1e")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RedstonePistonArea"]
-position = Vector2(-1.5, 0)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_pyu2x")
 
 [node name="FrontArea" type="Area2D" parent="."]
@@ -157,4 +158,21 @@ position = Vector2(192, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea12"]
 visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea13" type="Area2D" parent="."]
+visible = false
+position = Vector2(208, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea13"]
+visible = false
+shape = SubResource("RectangleShape2D_yr5qf")
+
+[node name="FrontArea14" type="Area2D" parent="."]
+visible = false
+position = Vector2(208, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontArea14"]
+visible = false
+position = Vector2(16, -16)
 shape = SubResource("RectangleShape2D_yr5qf")

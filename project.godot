@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="NABLA"
-run/main_scene="res://levels/PROXYTEST.tscn"
+run/main_scene="res://LevelSelection.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalVariables="*res://global_variables.gd"
-ProxyControl="*res://proxy/ProxyControl.gd"
 
 [display]
 

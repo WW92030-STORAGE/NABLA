@@ -24,6 +24,37 @@ var PROXY_ROTATION_STEPS = 1
 var BAR_LOWER = 16 * 10
 var BAR_UPPER = -16 * 10000
 
+# Level Names + Data
+
+var LEVEL_NAMES = ["Prelude", "Introduction", "Commencement", "Elemental", "Protogen", "Inspiration"]
+var DIFFICULTIES = ["Easy", "Easy", "Easy", "Normal", "Normal", "Hard"]
+var CurrentSelectedLevel = -1
+
+var CheckPointPosition = null
+var CheckpointTriggered = false
+
+# SAVE DATA
+
+var save_path = "user://savegame.tres"
+
+func load_data():
+	if ResourceLoader.exists(save_path):
+		var data = load(save_path)
+		# print("DATA ", data.levels, " ", data.CurrentLevel)
+		return data
+	return SaveData.new()
+
+func save_data(data):
+	print("SAVING DATA...")
+	print(data.levels, " ", data.CurrentLevel)
+	ResourceSaver.save(data, save_path)
+	print("SAVED DATA INTO ...", load(save_path).levels, load(save_path).CurrentLevel)
+
+func reset_game():
+	save_data(SaveData.new())
+
+# PROXY
+
 func _process(delta):
 	if (PROXY_COOL > 1):
 		PROXY_COOL -= 1
@@ -79,7 +110,7 @@ func _ready():
 	actuator_state = 0
 	overlapping = 0
 	PLAYER_GRAV = 1
-	CETERA_GRAV = 1
+	CETERA_GRAV = 1	
 	
 	request_ready()
 
