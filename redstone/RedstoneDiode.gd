@@ -15,6 +15,7 @@ func _physics_process(delta):
 	pass
 
 func _process(delta):
+	
 	power = latency[0]
 	for i in range(delay - 1):
 		latency[i] = latency[i + 1]

@@ -6,6 +6,7 @@ const FALL = 300.0
 
 var state = 0
 var xPos = 0
+var initialPosition
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -52,3 +53,4 @@ func _physics_process(delta):
 
 func _ready():
 	xPos = position.x
+	initialPosition = position

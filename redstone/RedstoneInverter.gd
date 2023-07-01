@@ -8,7 +8,7 @@ func _physics_process(delta):
 
 func _process(delta):
 	for object in $RedstoneInverterInArea.get_overlapping_areas():
-		power = 0
+		power = 15
 		if (object.name.substr(0, 12) == "RedstoneWire" || object.name.substr(0, 20) == "RedstoneDiodeOutArea"):
 			power = 0 if (object.find_parent("*").power > 0) else 15
 		elif (object.name.substr(0, 12 + 1) == "RedstoneBlock"):

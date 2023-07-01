@@ -6,7 +6,7 @@ var queue = false
 func _physics_process(delta):
 	queue = false
 	for i in $TopArea.get_overlapping_bodies():
-		if (GlobalVariables.is_Entity(i.name)):
+		if (GlobalVariables.is_Entity(i.name) && i.name.substr(0, 12) != "FallingBlock"):
 			queue = true
 			
 	if (!queue):

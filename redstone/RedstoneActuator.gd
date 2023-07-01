@@ -7,6 +7,7 @@ func _physics_process(delta):
 	pass
 	
 func _process(delta):
+	
 	for object in $RedstoneActuatorX.get_overlapping_areas():
 		if (object.name.substr(0, 12) == "RedstoneWire" || object.name.substr(0, 20) == "RedstoneDiodeOutArea"):
 			power = 15 if (object.find_parent("*").power > 0) else 0

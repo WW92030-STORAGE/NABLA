@@ -40,12 +40,15 @@ func _on_gui_input(event):
 		data.CurrentLevel = level_num
 		GlobalVariables.save_data(data)
 		
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		
 		get_tree().change_scene_to_file("res://levels/level_" + str(level_num) + ".tscn")
 	
 
 
 func _on_mouse_entered():
-	GlobalVariables.CurrentSelectedLevel = level_num
+	if (!locked):
+		GlobalVariables.CurrentSelectedLevel = level_num
 
 
 func _on_mouse_exited():

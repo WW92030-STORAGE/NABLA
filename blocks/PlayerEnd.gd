@@ -28,6 +28,7 @@ func _physics_process(delta):
 		GlobalVariables.CurrentSelectedLevel = -1
 		GlobalVariables.CheckPointPosition = null
 		GlobalVariables.save_data(data)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://LevelSelection.tscn")
 	
 	colorIndex += 16

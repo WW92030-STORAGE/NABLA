@@ -20,6 +20,7 @@ texture = ExtResource("2_mw23l")
 [node name="Label" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("3_okxyj")
+expand_mode = 3
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

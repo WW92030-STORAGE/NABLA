@@ -7,6 +7,8 @@ var textureid
 
 var delay = 0
 
+var initialPosition
+
 func _process(delta):
 	var setpower = 0
 	
@@ -51,3 +53,4 @@ func _physics_process(delta):
 	
 func _ready():
 	areas = [$RedstonePowerableR, $RedstonePowerableD, $RedstonePowerableL, $RedstonePowerableU]
+	initialPosition = position

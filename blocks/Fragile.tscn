@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://blocks/Fragile.gd" id="1_61bls"]
 [ext_resource type="Texture2D" uid="uid://bne2uck8rymy8" path="res://sprites/blocks/Fragile/fragile1.png" id="1_vo7ca"]
-[ext_resource type="Texture2D" uid="uid://d2luhpgokrb7q" path="res://sprites/blocks/fragile.png" id="1_xyk41"]
 [ext_resource type="Texture2D" uid="uid://bcddkh0rswkif" path="res://sprites/blocks/Fragile/fragile2.png" id="2_c77q7"]
 [ext_resource type="Texture2D" uid="uid://b8lj3tu35uwu7" path="res://sprites/blocks/Fragile/fragile3.png" id="3_wp1ch"]
 [ext_resource type="Texture2D" uid="uid://dxpkhgam1hjcs" path="res://sprites/blocks/Fragile/fragile4.png" id="4_1pyw5"]
 [ext_resource type="Texture2D" uid="uid://b8vyqska876wf" path="res://sprites/blocks/Fragile/fragile5.png" id="5_rkk2r"]
 [ext_resource type="Texture2D" uid="uid://xqtu43esl4gk" path="res://sprites/Invisible.png" id="7_fbme7"]
+[ext_resource type="Texture2D" uid="uid://bjfslbl3in0r8" path="res://sprites/blocks/Fragile/fragile.png" id="8_ly3bl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3k2b6"]
 animations = [{
@@ -48,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xyk41")
+"texture": ExtResource("8_ly3bl")
 }],
 "loop": true,
 "name": &"default",
@@ -66,7 +66,6 @@ script = ExtResource("1_61bls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3k2b6")
-animation = &"break"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

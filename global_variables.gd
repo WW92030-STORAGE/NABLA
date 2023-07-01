@@ -33,26 +33,56 @@ var CurrentSelectedLevel = -1
 var CheckPointPosition = null
 var CheckpointTriggered = false
 
+# Player or proxy enemy death.
+
 # SAVE DATA
 
-var save_path = "user://savegame.tres"
+var save_path = "user://savegame.save"
 
 func load_data():
-	if ResourceLoader.exists(save_path):
-		var data = load(save_path)
-		# print("DATA ", data.levels, " ", data.CurrentLevel)
-		return data
-	return SaveData.new()
-
+	var data = SaveData.new()
+	if FileAccess.file_exists(save_path):
+		print("FOUND SAVE DATA")
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		data.levels = file.get_var()
+		data.Enemies = file.get_var()
+		data.CurrentLevel = file.get_var()
+		data.CurrentEnemies = file.get_var()
+		
+		print("LOADED DATA...", data.levels, " ", data.CurrentLevel)
+	else:
+		print("ERROR 404 FILE NOT FOUND")
+	
+	return data
+'''
+levels = 1
+Enemies = []
+CurrentLevel = -1
+CurrentEnemies = 0
+'''
 func save_data(data):
-	print("SAVING DATA...")
-	print(data.levels, " ", data.CurrentLevel)
-	ResourceSaver.save(data, save_path)
-	print("SAVED DATA INTO ...", load(save_path).levels, load(save_path).CurrentLevel)
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(data.levels)
+	file.store_var(data.Enemies)
+	file.store_var(data.CurrentLevel)
+	file.store_var(data.CurrentEnemies)
 
 func reset_game():
 	save_data(SaveData.new())
 
+# EVERY TICK
+
+var insanity = 0
+
+func _physics_process(delta):
+	if (insanity > 0):
+		insanity -= 1
+		return
+	elif (insanity < 0):
+		insanity += 1
+		return
+	load_data()
+	insanity = 64
 # PROXY
 
 func _process(delta):
@@ -118,8 +148,10 @@ func resetCurrentScene():
 	print_debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 	actuator_state = 0
 	overlapping = 0
-	get_tree().reload_current_scene()
 	PLAYER_GRAV = 1
+	get_tree().reload_current_scene()
+	# RESET_SCENE = 2
+	
 
 func is_Physical_Entity(v: String):
 	if (v == "Player"):
