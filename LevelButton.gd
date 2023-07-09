@@ -38,6 +38,7 @@ func _on_gui_input(event):
 		
 		var data = GlobalVariables.load_data();
 		data.CurrentLevel = level_num
+		data.CurrentEnemies = []
 		GlobalVariables.save_data(data)
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

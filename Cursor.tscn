@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://btafoodc0ukvf"]
+
+[ext_resource type="Script" path="res://Cursor.gd" id="1_tp61m"]
+[ext_resource type="Texture2D" uid="uid://bugx8scs7j8ae" path="res://sprites/white_outline.png" id="2_p717f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ov6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p717f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cursor" type="CharacterBody2D"]
+script = ExtResource("1_tp61m")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2ov6m")

@@ -11,4 +11,4 @@ func _init():
 	levels = 0
 	Enemies = []
 	CurrentLevel = -1
-	CurrentEnemies = 0
+	CurrentEnemies = []
