@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dc17nyr4np3iv" path="res://sprites/SolidColors/Red.png" id="2_g5dr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6875"]
-size = Vector2(16, 15.5)
+size = Vector2(16, 16.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d03wi"]
 animations = [{
@@ -26,7 +26,7 @@ script = ExtResource("1_41n1f")
 [node name="RollerArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RollerArea"]
-position = Vector2(0, 0.25)
+position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_s6875")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

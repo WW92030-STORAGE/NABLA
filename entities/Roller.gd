@@ -31,6 +31,8 @@ func destroy():
 			queue_free()
 
 func _physics_process(delta):
+	if (GlobalVariables.RESET_SCENE > 0):
+		queue_free()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta

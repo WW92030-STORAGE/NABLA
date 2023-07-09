@@ -21,6 +21,18 @@ func killPlayer():
 
 
 func _physics_process(delta):
+	var volume = (AudioServer.get_bus_peak_volume_left_db(0,0) + AudioServer.get_bus_peak_volume_right_db(0,0)) / 2
+	
+	var normalized = GlobalVariables.sigmoid((volume + 60), 1.0 / 100.0)
+	if (normalized < 0):
+		normalized = 0
+	elif (normalized > 1):
+		normalized = 1
+	
+	$Sprite2D.scale.x = (0.1 + 0.9 * normalized) * 4
+	$Sprite2D.scale.y = (0.1 + 0.9 * normalized) * 4
+	
+	
 	position.x = xPos
 	if (isActive):
 		return 
@@ -54,3 +66,5 @@ func _physics_process(delta):
 func _ready():
 	xPos = position.x
 	initialPosition = position
+	
+	$Sprite2D.set_modulate(Color(0.5, 0.5, 0.5, 0.5))

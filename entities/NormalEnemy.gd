@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 50.0
+const SPEED = 40.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -16,21 +16,30 @@ func killPlayer():
 		if (i.name == "Player"):
 			GlobalVariables.resetCurrentScene()
 
+func remove():
+	var data = GlobalVariables.load_data()
+	var string = str(self).substr(0, str(self).find(":"))
+	data.CurrentEnemies.append(string)
+	print(data.CurrentEnemies)
+	GlobalVariables.save_data(data)
+	queue_free()
+
 func destroy():
 	
 	for i in $Area2D.get_overlapping_bodies():
 		if (i.name.substr(0, 5) == "Spike"):
-			queue_free()
+			remove()
 		if (i.name.substr(0, 6) == "Roller"):
-			queue_free()
-		if (i.name.substr(0, 16) == "EnemyProtection"):
-			queue_free()
+			remove()
+		if (i.name.substr(0, 15) == "EnemyProtection"):
+			print("COLLISION WITH ENEMY PROTECTION")
+			remove()
 	
 	for i in $TopArea.get_overlapping_bodies():
 		if (i.name == "Player"):
-			queue_free()
+			remove()
 		if (i.name.substr(0, 12) == "FallingBlock"):
-			queue_free()
+			remove()
 			
 func _physics_process(delta):
 	# Add the gravity.
@@ -57,9 +66,24 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = false
 		
 	if (position.y > GlobalVariables.BAR_LOWER || position.y < GlobalVariables.BAR_UPPER):
-		queue_free()
+		remove()
 		
 	killPlayer()
 	destroy()
 
 	move_and_slide()
+
+func _ready():
+	var string = str(self).substr(0, str(self).find(":"))
+	
+	var destroyed = false
+	var data = GlobalVariables.load_data()
+	for i in data.CurrentEnemies:
+		if (i == string):
+			destroyed = true
+			break
+	
+	
+	if (destroyed):
+		queue_free()
+				

@@ -21,7 +21,10 @@ func _physics_process(delta):
 		data.levels = max(data.levels, data.CurrentLevel + 1)
 		while (len(data.Enemies) <= data.CurrentLevel) :
 			data.Enemies.append(-1)
-			data.CurrentEnemies = 0
+		
+		data.Enemies[data.CurrentLevel] = max(data.Enemies[data.CurrentLevel], len(data.CurrentEnemies))
+		
+		data.CurrentEnemies = []
 	
 		print("COMPLETED LEVEL ", data.CurrentLevel, " / ", data.levels)
 		data.CurrentLevel = -1

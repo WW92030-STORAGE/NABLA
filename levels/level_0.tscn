@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b68xxv3tlxq04"]
+[gd_scene load_steps=19 format=3 uid="uid://b68xxv3tlxq04"]
 
 [ext_resource type="AudioStream" uid="uid://w6vu08uhnssv" path="res://music/SIBELIUS-I_SQUARE.mp3" id="1_q7ik6"]
 [ext_resource type="PackedScene" uid="uid://3pqlp2xx3fm1" path="res://entities/Player.tscn" id="1_wwy1w"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dj00i7ggodk6l" path="res://blocks/Checkpoint.tscn" id="12_n5tna"]
 [ext_resource type="PackedScene" uid="uid://wwgac2ptgryi" path="res://blocks/Fragile.tscn" id="14_iruen"]
 [ext_resource type="PackedScene" uid="uid://crnkd748noqvp" path="res://blocks/PlayerEnd.tscn" id="15_fhx0y"]
+[ext_resource type="PackedScene" uid="uid://c73sqxmwucltm" path="res://redstone/RedstoneLever.tscn" id="16_dcawr"]
 [ext_resource type="Texture2D" uid="uid://bixgfk718vak1" path="res://sprites/Terrain/ground0.png" id="17_cndpo"]
 [ext_resource type="PackedScene" uid="uid://chudhsesi7x7e" path="res://redstone/RedstoneInverter.tscn" id="18_4q5xy"]
 [ext_resource type="PackedScene" uid="uid://dxprtfi2fayce" path="res://redstone/RedstoneDiode.tscn" id="19_l7m54"]
@@ -494,6 +495,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-504, 8)
+position_smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2r5js")
@@ -521,12 +523,6 @@ position = Vector2(1000, -56)
 
 [node name="Spike3" parent="." instance=ExtResource("3_xfprm")]
 position = Vector2(1016, -56)
-
-[node name="PressureSensor" parent="." instance=ExtResource("4_yfirf")]
-position = Vector2(408, 8)
-
-[node name="PressureSensor2" parent="." instance=ExtResource("4_yfirf")]
-position = Vector2(472, 8)
 
 [node name="RedstoneActuator" parent="." instance=ExtResource("21_q1qcr")]
 position = Vector2(440, 8)
@@ -838,3 +834,9 @@ position = Vector2(3192, -168)
 [node name="RedstoneDiode3" parent="." instance=ExtResource("19_l7m54")]
 position = Vector2(712, -264)
 rotation = 3.14159
+
+[node name="PressureSensor" parent="." instance=ExtResource("16_dcawr")]
+position = Vector2(408, 8)
+
+[node name="PressureSensor2" parent="." instance=ExtResource("16_dcawr")]
+position = Vector2(472, 8)

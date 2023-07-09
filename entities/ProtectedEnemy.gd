@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 50.0
+const SPEED = 40.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -23,6 +23,13 @@ func killPlayer():
 			GlobalVariables.resetCurrentScene()
 			
 func die():
+	var data = GlobalVariables.load_data()
+	var string = str(self).substr(0, str(self).find(":"))
+	data.CurrentEnemies.append(string)
+	print(data.CurrentEnemies)
+	GlobalVariables.save_data(data)
+	
+	
 	var x = position.x
 	var y = position.y
 	print_debug(x, y)
@@ -41,7 +48,6 @@ func destroy():
 			die()
 		if (i.name.substr(0, 6) == "Roller"):
 			die()
-			queue_free()
 	
 	for i in $TopArea.get_overlapping_bodies():
 		if (i.name == "Player"):
@@ -92,9 +98,24 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = false
 		
 	if (position.y > GlobalVariables.BAR_LOWER || position.y < GlobalVariables.BAR_UPPER):
-		queue_free()
+		die()
 		
 	killPlayer()
 	destroy()
 
 	move_and_slide()
+
+func _ready():
+	var string = str(self).substr(0, str(self).find(":"))
+	
+	var destroyed = false
+	var data = GlobalVariables.load_data()
+	for i in data.CurrentEnemies:
+		if (i == string):
+			destroyed = true
+			break
+	
+	
+	if (destroyed):
+		queue_free()
+	
