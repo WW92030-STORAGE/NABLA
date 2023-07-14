@@ -1,5 +1,5 @@
 # NABLA
-Puzzle-Platformer game in Godot Engine. This repository is currently a file storage system and has no levels. You will have to make them yourself using Godot Engine.
+Puzzle-Platformer game in Godot Engine. The game as it exists in this repository contains most gameplay features but virtually no levels. You will have to make them yourself using the Godot editor.
 
 ---
 
