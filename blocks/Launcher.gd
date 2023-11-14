@@ -17,6 +17,8 @@ func fire():
 	entity.velocity.y = -300 * sin(theta)
 	entity.switched = 16 * randi_range(0, 1)
 	get_tree().get_root().add_child(entity)
+	entity.name = "Roller_" + entity.name
+	print("FIRED ", entity.name)
 
 func _process(delta):
 	if (isActive):

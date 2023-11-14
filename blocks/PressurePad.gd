@@ -7,6 +7,7 @@ func _physics_process(delta):
 	queue = false
 	for i in $TopArea.get_overlapping_bodies():
 		if (GlobalVariables.is_Entity(i.name) && i.name.substr(0, 12) != "FallingBlock"):
+			print("ACTIVATED BY", i.name)
 			queue = true
 			
 	if (!queue):
