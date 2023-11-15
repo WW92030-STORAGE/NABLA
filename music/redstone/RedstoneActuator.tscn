@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpk8ujby4gyus"]
+
+[ext_resource type="Script" path="res://redstone/RedstoneActuator.gd" id="1_e60rd"]
+[ext_resource type="Texture2D" uid="uid://dgiw1eo3q74tc" path="res://sprites/Redstone/RedstoneActuatorActive.png" id="1_hui4c"]
+[ext_resource type="Texture2D" uid="uid://bpljqx5dr4u88" path="res://sprites/Medium_gray.png" id="2_hsmoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b32f"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o28sr"]
+size = Vector2(14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlt51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hui4c")
+}],
+"loop": true,
+"name": &"Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hsmoh")
+}],
+"loop": true,
+"name": &"Inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbeit"]
+size = Vector2(4, 4)
+
+[node name="RedstoneActuator" type="CharacterBody2D"]
+script = ExtResource("1_e60rd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7b32f")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_o28sr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_dlt51")
+animation = &"Active"
+autoplay = "Active"
+
+[node name="RedstoneActuatorX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedstoneActuatorX"]
+shape = SubResource("RectangleShape2D_gbeit")

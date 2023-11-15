@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c73sqxmwucltm"]
+
+[ext_resource type="Script" path="res://redstone/RedstoneLever.gd" id="1_gj7f7"]
+[ext_resource type="Texture2D" uid="uid://dreolevb3xfvg" path="res://sprites/Redstone/RedstoneLever.png" id="2_ol2l3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crss0"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1fyn"]
+size = Vector2(4, 4)
+
+[node name="PressureSensor" type="CharacterBody2D"]
+script = ExtResource("1_gj7f7")
+
+[node name="PressureArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressureArea2D"]
+shape = SubResource("RectangleShape2D_crss0")
+
+[node name="PressureSensorX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressureSensorX"]
+shape = SubResource("RectangleShape2D_k1fyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ol2l3")

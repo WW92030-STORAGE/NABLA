@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://l5ur8jwhup6f"]
+
+[ext_resource type="Script" path="res://entities/ProtectedEnemy.gd" id="1_dmdt5"]
+[ext_resource type="Texture2D" uid="uid://w32k4va4s3aj" path="res://sprites/entities/ProtectedEnemy/ProtectedEnemy.png" id="2_lgwqi"]
+[ext_resource type="Texture2D" uid="uid://cshgsidc6as1v" path="res://sprites/entities/ProtectedEnemy/ProtectedEnemy1.png" id="3_uohb7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51ktx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lgwqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uohb7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30vb4"]
+size = Vector2(14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2hp0"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fhrl"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgwlk"]
+size = Vector2(18, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnol7"]
+size = Vector2(16, 1)
+
+[node name="ProtectedEnemy" type="CharacterBody2D"]
+script = ExtResource("1_dmdt5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_51ktx")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_30vb4")
+
+[node name="TopArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_m2hp0")
+
+[node name="SideArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_3fhrl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xgwlk")
+
+[node name="ClimbArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbArea"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_gnol7")

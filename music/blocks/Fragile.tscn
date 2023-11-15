@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://wwgac2ptgryi"]
+
+[ext_resource type="Script" path="res://blocks/Fragile.gd" id="1_61bls"]
+[ext_resource type="Texture2D" uid="uid://bne2uck8rymy8" path="res://sprites/blocks/Fragile/fragile1.png" id="1_vo7ca"]
+[ext_resource type="Texture2D" uid="uid://bcddkh0rswkif" path="res://sprites/blocks/Fragile/fragile2.png" id="2_c77q7"]
+[ext_resource type="Texture2D" uid="uid://b8lj3tu35uwu7" path="res://sprites/blocks/Fragile/fragile3.png" id="3_wp1ch"]
+[ext_resource type="Texture2D" uid="uid://dxpkhgam1hjcs" path="res://sprites/blocks/Fragile/fragile4.png" id="4_1pyw5"]
+[ext_resource type="Texture2D" uid="uid://b8vyqska876wf" path="res://sprites/blocks/Fragile/fragile5.png" id="5_rkk2r"]
+[ext_resource type="Texture2D" uid="uid://xqtu43esl4gk" path="res://sprites/Invisible.png" id="7_fbme7"]
+[ext_resource type="Texture2D" uid="uid://bjfslbl3in0r8" path="res://sprites/blocks/Fragile/fragile.png" id="8_ly3bl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3k2b6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vo7ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c77q7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wp1ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1pyw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rkk2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fbme7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fbme7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fbme7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fbme7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fbme7")
+}],
+"loop": true,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ly3bl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqm1h"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw87x"]
+size = Vector2(14, 2)
+
+[node name="Fragile" type="CharacterBody2D"]
+script = ExtResource("1_61bls")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3k2b6")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kqm1h")
+
+[node name="TopArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_uw87x")

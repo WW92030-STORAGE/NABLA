@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://csidxu7x58a4n"]
+
+[ext_resource type="Script" path="res://redstone/RedstonePowerable.gd" id="1_avreb"]
+[ext_resource type="Texture2D" uid="uid://b88ib4n6lae2e" path="res://sprites/Redstone/individual/row-1-column-1.png" id="2_xx6y7"]
+[ext_resource type="Texture2D" uid="uid://3cj2xyhougtx" path="res://sprites/Redstone/RedstonePowerable.png" id="3_jdp2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v5a1"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o2ys"]
+size = Vector2(16, 16)
+
+[node name="RedstonePowerable" type="CharacterBody2D"]
+script = ExtResource("1_avreb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xx6y7")
+
+[node name="RedstonePowerableR" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedstonePowerableR"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_5v5a1")
+
+[node name="RedstonePowerableD" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedstonePowerableD"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_5v5a1")
+
+[node name="RedstonePowerableL" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedstonePowerableL"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_5v5a1")
+
+[node name="RedstonePowerableU" type="Area2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(1, 1.01303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedstonePowerableU"]
+shape = SubResource("RectangleShape2D_5v5a1")
+
+[node name="RedstonePowerableX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedstonePowerableX"]
+shape = SubResource("RectangleShape2D_5v5a1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8o2ys")
+
+[node name="Corners" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_jdp2n")
