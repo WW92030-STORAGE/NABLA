@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var power = 5
+var setpower = 0
 var areas
 
 var textureid
@@ -9,8 +10,9 @@ var delay = 0
 
 var initialPosition
 
-func _process(delta):
-	var setpower = 0
+func _physics_process(delta):
+	power = setpower
+	setpower = 0
 	
 	
 	textureid = 0
@@ -29,8 +31,6 @@ func _process(delta):
 			
 		if (overlap):
 			textureid += (1<<i)
-	
-	power = setpower
 			
 	# textureid = randi() % 16
 	
@@ -47,9 +47,6 @@ func _process(delta):
 	$Sprite2D.texture = resource
 	$Sprite2D.set_modulate(Color(pcolor, pcolor, pcolor, 1))
 	$Corners.set_modulate(Color(pcolor, pcolor, pcolor, 1))
-
-func _physics_process(delta):
-	pass
 	
 func _ready():
 	areas = [$RedstonePowerableR, $RedstonePowerableD, $RedstonePowerableL, $RedstonePowerableU]

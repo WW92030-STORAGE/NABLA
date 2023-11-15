@@ -1,14 +1,17 @@
 extends CharacterBody2D
 
 var power = 0
+var setpower = 0
 var areas
 
 var textureid
 
 var delay = 0
+var ispowered = 0
 
 func _process(delta):
-	var setpower = 0
+	setpower = 0
+	ispowered = 0
 	
 	
 	textureid = 0
@@ -20,7 +23,9 @@ func _process(delta):
 			if (object.name.substr(0, 14) == "RedstonePiston"):
 				overlap = true
 			if (object.name.substr(0, 12) == "RedstoneWire"):
-				setpower = max(setpower, object.find_parent("*").power - 1)
+				var prev = object.find_parent("*").power
+				if (prev > setpower):
+					setpower = prev - 1
 			elif (object.name.substr(0, 12 + 1) == "RedstoneBlock"):
 				setpower = 15
 			elif (object.name.substr(0, 21) == "RedstoneDiodeOutArea"):
@@ -36,6 +41,9 @@ func _process(delta):
 	for object in $RedstoneWireX.get_overlapping_areas():
 		if (object.name.substr(0, 14) == "PressureSensor"):
 			setpower = max(setpower, object.find_parent("*").power)
+	
+	if (setpower > 0):
+		ispowered = 1
 	
 	power = setpower
 			
@@ -53,10 +61,6 @@ func _process(delta):
 	# $Sprite2D.texture = resource
 	$Sprite2D.texture = resource
 	$Sprite2D.set_modulate(Color(pcolor, pcolor, pcolor, 1))
-	
-
-func _physics_process(delta):
-	pass
 	
 func _ready():
 	areas = [$RedstoneWireR, $RedstoneWireD, $RedstoneWireL, $RedstoneWireU]

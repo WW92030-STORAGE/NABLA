@@ -4,8 +4,10 @@ var active = false
 var queue = false
 
 var power = 0
+var setpower = 0
 
 func _physics_process(delta):
+	power = setpower
 	queue = false
 	for i in $PressureArea2D.get_overlapping_bodies():
 		if (GlobalVariables.is_Entity(i.name) || GlobalVariables.is_Proxy(i.name) || GlobalVariables.piston_Movable(i.name)):
@@ -16,7 +18,7 @@ func _physics_process(delta):
 			
 	if (queue && !active):
 		active = true
-		power = 15 - power
+		setpower = 15 - setpower
 	
 	var p = power / 15
 	

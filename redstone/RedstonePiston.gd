@@ -40,8 +40,9 @@ var blocked
 
 var extended = false
 
+var signal_ = 0
+
 func _physics_process(delta):
-	
 	if (position != pos):
 		position = pos
 		
