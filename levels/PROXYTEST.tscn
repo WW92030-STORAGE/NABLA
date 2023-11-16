@@ -492,7 +492,7 @@ max_distance = 100000.0
 [node name="ProxyCore" parent="." instance=ExtResource("4_a1iek")]
 position = Vector2(-8, -232)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="ProxyCore"]
+[node name="PROXY_CAM" type="RemoteTransform2D" parent="ProxyCore"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="ProxyBlock" parent="." instance=ExtResource("5_8ibnd")]

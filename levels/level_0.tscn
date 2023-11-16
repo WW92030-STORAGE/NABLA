@@ -484,7 +484,7 @@ max_distance = 100000.0
 [node name="Player" parent="." instance=ExtResource("1_wwy1w")]
 position = Vector2(-504, 8)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+[node name="PLAYER_CAM" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="TextureRect" type="TextureRect" parent="Player"]

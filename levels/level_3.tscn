@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3pqlp2xx3fm1" path="res://entities/Player.tscn" id="1_mv25v"]
 [ext_resource type="Texture2D" uid="uid://bixgfk718vak1" path="res://sprites/Terrain/ground0.png" id="2_kcki5"]
-[ext_resource type="AudioStream" uid="uid://dbp0yuw5pj8pk" path="res://music/ANITRA.mp3" id="3_2478n"]
+[ext_resource type="AudioStream" uid="uid://b5t6qieexuii0" path="res://music/PAVANE.mp3" id="3_wuxe7"]
 [ext_resource type="PackedScene" uid="uid://c23o4osicdorm" path="res://blocks/Spike.tscn" id="5_qd6j5"]
 [ext_resource type="PackedScene" uid="uid://bakq6s8et5ijb" path="res://blocks/PressurePad.tscn" id="6_agawb"]
 [ext_resource type="PackedScene" uid="uid://cksek2twhjv5y" path="res://blocks/ActuatorRed.tscn" id="7_8jqrj"]
@@ -473,7 +473,7 @@ metadata/_edit_vertical_guides_ = [496.0]
 [node name="Player" parent="." instance=ExtResource("1_mv25v")]
 position = Vector2(0, -32)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+[node name="PLAYER_CAM" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="TextureRect" type="TextureRect" parent="Player"]
@@ -494,7 +494,7 @@ layer_0/tile_data = PackedInt32Array(1507347, 131072, 1, 1441811, 327680, 3, 137
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-512, -224)
-stream = ExtResource("3_2478n")
+stream = ExtResource("3_wuxe7")
 autoplay = true
 max_distance = 100000.0
 
