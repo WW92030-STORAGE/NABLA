@@ -16,7 +16,6 @@ var PROXY_ACTIVE = 0
 var PROXY_OVERLAP = 0
 var PROXY_DIR = 0
 var PROXY_COOL = 0
-var PROXY_CLOCK = 1.0 / 40.0
 var PROXY_IMMOBILE = 0
 
 var PROXY_ROTATION_STEPS = 1
@@ -24,9 +23,15 @@ var PROXY_ROTATION_STEPS = 1
 var BAR_LOWER = 16 * 10
 var BAR_UPPER = -16 * 10000
 
+var CLOCK = 1.0 / 40.0
+var REDSTONE_TICK = 0
+
+func TICK_REDSTONE():
+	return REDSTONE_TICK == 0
+
 # Level Names + Data
 
-var LEVEL_NAMES = ["Prelude", "Introduction", "Commencement", "Discrete", "Specification", "Vorspiel"]
+var LEVEL_NAMES = ["Prelude", "Introduction", "Commencement", "Specification", "Discrete", "Vorspiel"]
 var DIFFICULTIES = ["Easy", "Easy", "Normal", "Normal", "Normal", "Hard"]
 var CurrentSelectedLevel = -1
 
@@ -75,21 +80,20 @@ func reset_game():
 
 var RESET_SCENE = 0
 
-func _physics_process(delta):
+# PROXY
+
+func _process(delta):
 	if (RESET_SCENE > 0):
 		RESET_SCENE -= 1
 	elif (RESET_SCENE < 0):
 		RESET_SCENE += 1
 	
-# PROXY
-
-func _process(delta):
 	if (PROXY_COOL > 1):
 		PROXY_COOL -= 1
 		
 	# if (PROXY_DIR >= 0):
 	# 	print("PROXY DATA ", PROXY_DIR, " ", PROXY_COOL)
-		
+	
 	if (PROXY_COOL <= 0):
 		if Input.is_action_pressed("PROXY_RIGHT"):
 			PROXY_DIR = 0
@@ -119,9 +123,9 @@ func _process(delta):
 	elif (PROXY_COOL == 1 && PROXY_DIR >= 0):
 		PROXY_COOL = 0.5
 		if (PROXY_DIR <= 3):
-			await get_tree().create_timer(PROXY_CLOCK).timeout
+			await get_tree().create_timer(CLOCK).timeout
 		else:
-			await get_tree().create_timer(PROXY_CLOCK * 2).timeout
+			await get_tree().create_timer(CLOCK * 2).timeout
 			
 		PROXY_DIR = -1
 		PROXY_COOL = 0
