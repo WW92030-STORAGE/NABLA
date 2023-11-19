@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5chnw0e12fl5"]
+[gd_scene load_steps=6 format=3 uid="uid://c5chnw0e12fl5"]
 
-[ext_resource type="PackedScene" uid="uid://c6pdettmrbgtt" path="res://LevelGrid.tscn" id="1_5to0q"]
+[ext_resource type="PackedScene" uid="uid://c6pdettmrbgtt" path="res://LevelGrid0.tscn" id="1_5to0q"]
 [ext_resource type="Script" path="res://LevelSelection.gd" id="1_8ixdc"]
 [ext_resource type="PackedScene" uid="uid://btafoodc0ukvf" path="res://Cursor.tscn" id="3_bbk7t"]
+[ext_resource type="PackedScene" uid="uid://4vubhhy0wx1w" path="res://LevelGrid1.tscn" id="3_vrx7j"]
 
 [sub_resource type="SystemFont" id="SystemFont_nw650"]
 font_names = PackedStringArray("Impact")
@@ -68,16 +69,13 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1508.0
+offset_bottom = 250.0
 
-[node name="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("1_5to0q")]
+[node name="LevelGrid0" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("1_5to0q")]
 layout_mode = 2
 
-[node name="GridContainer2" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("1_5to0q")]
-layout_mode = 2
-
-[node name="GridContainer3" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("1_5to0q")]
+[node name="LevelGrid1" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("3_vrx7j")]
 layout_mode = 2
 
 [node name="TextureButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
