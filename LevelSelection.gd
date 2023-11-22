@@ -19,8 +19,11 @@ func _process(delta):
 	if (GlobalVariables.CurrentSelectedLevel < 0):
 		$VBoxContainer/TITLE.text = "【SELECT LEVEL】"
 	else:
-		var name = GlobalVariables.LEVEL_NAMES[GlobalVariables.CurrentSelectedLevel]
-		var diff = GlobalVariables.DIFFICULTIES[GlobalVariables.CurrentSelectedLevel]
+		var name = "LEVEL " + str(GlobalVariables.CurrentSelectedLevel)
+		var diff = "INDETERMINATE"
+		if (GlobalVariables.CurrentSelectedLevel < len(GlobalVariables.LEVEL_NAMES)):
+			name = GlobalVariables.LEVEL_NAMES[GlobalVariables.CurrentSelectedLevel]
+			diff = GlobalVariables.DIFFICULTIES[GlobalVariables.CurrentSelectedLevel]
 		$VBoxContainer/TITLE.text = "【" + name + " - " + diff + "】"
 
 

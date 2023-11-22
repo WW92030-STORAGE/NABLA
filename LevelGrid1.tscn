@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://4vubhhy0wx1w"]
 
-[ext_resource type="PackedScene" uid="uid://njc0nj6g72rx" path="res://LevelButton.tscn" id="1_n8nvu"]
+[ext_resource type="PackedScene" uid="uid://njc0nj6g72rx" path="res://LevelButton.tscn" id="1_kpnti"]
 
 [node name="LevelGrid1" type="GridContainer"]
 clip_contents = true
@@ -8,26 +8,26 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 3
 
-[node name="LevelButton" parent="." instance=ExtResource("1_n8nvu")]
+[node name="LevelButton" parent="." instance=ExtResource("1_kpnti")]
 layout_mode = 2
 level_num = 6
 
-[node name="LevelButton2" parent="." instance=ExtResource("1_n8nvu")]
+[node name="LevelButton2" parent="." instance=ExtResource("1_kpnti")]
 layout_mode = 2
 level_num = 7
 
-[node name="LevelButton3" parent="." instance=ExtResource("1_n8nvu")]
+[node name="LevelButton3" parent="." instance=ExtResource("1_kpnti")]
 layout_mode = 2
 level_num = 8
 
-[node name="LevelButton4" parent="." instance=ExtResource("1_n8nvu")]
+[node name="LevelButton4" parent="." instance=ExtResource("1_kpnti")]
 layout_mode = 2
 level_num = 9
 
-[node name="LevelButton5" parent="." instance=ExtResource("1_n8nvu")]
+[node name="LevelButton5" parent="." instance=ExtResource("1_kpnti")]
 layout_mode = 2
 level_num = 10
 
-[node name="LevelButton6" parent="." instance=ExtResource("1_n8nvu")]
+[node name="LevelButton6" parent="." instance=ExtResource("1_kpnti")]
 layout_mode = 2
 level_num = 11

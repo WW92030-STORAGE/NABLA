@@ -7,6 +7,7 @@ var PLAYER_GRAV = 1
 var CETERA_GRAV = 1
 
 var PLAYER_SPAWN = Vector2(0, 0)
+var PLAYER_POSITION = Vector2(0, 0)
 var PROXY_SPAWN = Vector2(0, 0)
 
 var PROXY_POSITION = Vector2(0, 0)
@@ -26,13 +27,19 @@ var BAR_UPPER = -16 * 10000
 var CLOCK = 1.0 / 40.0
 var REDSTONE_TICK = 0
 
+var MENU_SCREEN = 0
+var NUM_MENUS = 2
+
 func TICK_REDSTONE():
 	return REDSTONE_TICK == 0
 
 # Level Names + Data
 
-var LEVEL_NAMES = ["Prelude", "Introduction", "Commencement", "Specification", "Discrete", "Vorspiel"]
-var DIFFICULTIES = ["Easy", "Easy", "Normal", "Normal", "Normal", "Hard"]
+var LEVEL_NAMES = ["Prelude", "Introduction", "Commencement", "Specification", "Discrete", "Vorspiel", 
+"Motion", "Displacement"]
+
+var DIFFICULTIES = ["Easy", "Easy", "Easy", "Normal", "Normal", "Normal", 
+"Normal", "Normal"]
 var CurrentSelectedLevel = -1
 
 var CheckPointPosition = null

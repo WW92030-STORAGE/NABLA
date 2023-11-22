@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5chnw0e12fl5"]
+[gd_scene load_steps=5 format=3 uid="uid://c5chnw0e12fl5"]
 
-[ext_resource type="Script" path="res://LevelSelection.gd" id="1_5l8gf"]
-[ext_resource type="PackedScene" uid="uid://c6pdettmrbgtt" path="res://LevelGrid0.tscn" id="2_h3sb8"]
-[ext_resource type="PackedScene" uid="uid://4vubhhy0wx1w" path="res://LevelGrid1.tscn" id="3_c8vbr"]
-[ext_resource type="PackedScene" uid="uid://btafoodc0ukvf" path="res://Cursor.tscn" id="4_qnol2"]
+[ext_resource type="PackedScene" uid="uid://c6pdettmrbgtt" path="res://LevelGrid.tscn" id="1_5to0q"]
+[ext_resource type="Script" path="res://LevelSelection.gd" id="1_8ixdc"]
+[ext_resource type="PackedScene" uid="uid://btafoodc0ukvf" path="res://Cursor.tscn" id="3_bbk7t"]
 
 [sub_resource type="SystemFont" id="SystemFont_nw650"]
 font_names = PackedStringArray("Impact")
@@ -36,7 +35,7 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
-script = ExtResource("1_5l8gf")
+script = ExtResource("1_8ixdc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -69,13 +68,16 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control"]
 layout_mode = 0
-offset_right = 1508.0
-offset_bottom = 250.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="LevelGrid0" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("2_h3sb8")]
+[node name="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("1_5to0q")]
 layout_mode = 2
 
-[node name="LevelGrid1" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("3_c8vbr")]
+[node name="GridContainer2" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("1_5to0q")]
+layout_mode = 2
+
+[node name="GridContainer3" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("1_5to0q")]
 layout_mode = 2
 
 [node name="TextureButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
@@ -84,5 +86,5 @@ size_flags_horizontal = 2
 ignore_texture_size = true
 stretch_mode = 3
 
-[node name="Cursor" parent="." instance=ExtResource("4_qnol2")]
+[node name="Cursor" parent="." instance=ExtResource("3_bbk7t")]
 position = Vector2(460, 628)
