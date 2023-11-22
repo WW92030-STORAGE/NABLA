@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://br6ik47jk8ki2"
+path="res://.godot/imported/J.S Bach - Pablo Casals Dirige Concerto En La Mineur - I. Allegro.mp3-e9a5516be8800c7fb654624e55476f6b.mp3str"
+
+[deps]
+
+source_file="res://music/J.S Bach - Pablo Casals Dirige Concerto En La Mineur - I. Allegro.mp3"
+dest_files=["res://.godot/imported/J.S Bach - Pablo Casals Dirige Concerto En La Mineur - I. Allegro.mp3-e9a5516be8800c7fb654624e55476f6b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
