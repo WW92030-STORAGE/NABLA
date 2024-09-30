@@ -1,7 +1,7 @@
 # NABLA
 Puzzle-Platformer game in Godot Engine. The game as it exists in this repository contains most gameplay features but only a small proportion of the levels. You will have to make them yourself using the Godot editor or play the [itch.io releases](https://normalexisting.itch.io/nabla).
 
-NOTE - The `master` branch is the most updated version. Everything else is an archive.
+NOTE - The `master` branch is the most updated version. Everything else is an archive. The master branch also contains all levels currently implemented into the game.
 
 ---
 
