@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://djpm56bmne5v"]
+
+[ext_resource type="Script" path="res://redstone/MovableBlock.gd" id="1_lmhqt"]
+[ext_resource type="Texture2D" uid="uid://c7b2v37k4gw2y" path="res://sprites/Redstone/MovableBlock.png" id="1_nn7gy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o2ys"]
+size = Vector2(16, 16)
+
+[node name="MovableBlock" type="CharacterBody2D"]
+script = ExtResource("1_lmhqt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.57628e-07, -2.38419e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_nn7gy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8o2ys")

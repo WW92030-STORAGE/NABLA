@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxmilf8qq6egy"]
+
+[ext_resource type="Script" path="res://blocks/CyanOrb.gd" id="1_e6cxk"]
+[ext_resource type="Texture2D" uid="uid://bt5wv7mjotv4" path="res://sprites/SolidColors/Cyan.png" id="2_gekhn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_048ee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gekhn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8klu8"]
+size = Vector2(16, 16)
+
+[node name="CyanOrb" type="CharacterBody2D"]
+script = ExtResource("1_e6cxk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_048ee")
+
+[node name="OrbCyan" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbCyan"]
+shape = SubResource("RectangleShape2D_8klu8")

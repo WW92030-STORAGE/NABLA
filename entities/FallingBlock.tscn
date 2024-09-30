@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdru15b5cfmqi"]
+
+[ext_resource type="Script" path="res://entities/FallingBlock.gd" id="1_mux4r"]
+[ext_resource type="Texture2D" uid="uid://b18bel1vj3n1s" path="res://sprites/entities/FallingBlock/FallingBlock0.png" id="1_mxbpj"]
+[ext_resource type="Texture2D" uid="uid://bto2x5j6glfu6" path="res://sprites/entities/FallingBlock/FallingBlock1.png" id="2_qscin"]
+[ext_resource type="Texture2D" uid="uid://bflysul0ol1d2" path="res://sprites/entities/FallingBlock/FallingBlock2.png" id="3_wd783"]
+[ext_resource type="Texture2D" uid="uid://d17g6l6txn1pd" path="res://sprites/entities/FallingBlock/FallingBlock3.png" id="4_fwimt"]
+[ext_resource type="Texture2D" uid="uid://bxsoia1hqgngk" path="res://sprites/entities/FallingBlock/FallingBlock4.png" id="5_5htlo"]
+[ext_resource type="Texture2D" uid="uid://sgb6prtuf5xl" path="res://sprites/entities/FallingBlock/FallingBlock5.png" id="6_qirvc"]
+[ext_resource type="Texture2D" uid="uid://d3dlgvfqxx8r3" path="res://sprites/SolidColors/white.png" id="8_ymewq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbfxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mxbpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qscin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wd783")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fwimt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5htlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qirvc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmbrr"]
+size = Vector2(48, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlamb"]
+size = Vector2(46, 48)
+
+[node name="FallingBlock" type="CharacterBody2D"]
+script = ExtResource("1_mux4r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bbfxq")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jmbrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jlamb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, -3.57628e-07)
+scale = Vector2(2, 2)
+texture = ExtResource("8_ymewq")

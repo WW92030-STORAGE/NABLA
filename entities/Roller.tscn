@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4k705hwsmei5"]
+
+[ext_resource type="Script" path="res://entities/Roller.gd" id="1_41n1f"]
+[ext_resource type="Texture2D" uid="uid://dc17nyr4np3iv" path="res://sprites/SolidColors/Red.png" id="2_g5dr7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6875"]
+size = Vector2(16, 16.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d03wi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g5dr7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2h6w"]
+size = Vector2(14, 14)
+
+[node name="Roller" type="CharacterBody2D"]
+script = ExtResource("1_41n1f")
+
+[node name="RollerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RollerArea"]
+position = Vector2(0, 0.75)
+shape = SubResource("RectangleShape2D_s6875")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_d03wi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_l2h6w")

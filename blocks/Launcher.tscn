@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk3r0sx7tqv76"]
+
+[ext_resource type="Texture2D" uid="uid://bd5pwnelf887j" path="res://sprites/blocks/LauncherL.png" id="1_alvok"]
+[ext_resource type="Script" path="res://blocks/Launcher.gd" id="1_cbr8m"]
+[ext_resource type="Texture2D" uid="uid://cc6y1vqm4u4oe" path="res://sprites/blocks/LauncherLX.png" id="1_ejbsj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_quuht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ejbsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_alvok")
+}],
+"loop": true,
+"name": &"cue",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_alvok")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mce2e"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qenb"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pymsr"]
+size = Vector2(16, 16)
+
+[node name="Launcher" type="CharacterBody2D"]
+script = ExtResource("1_cbr8m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.47035e-07, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_quuht")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_mce2e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_6qenb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_pymsr")

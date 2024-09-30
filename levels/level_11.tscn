@@ -1,0 +1,982 @@
+[gd_scene load_steps=24 format=3 uid="uid://xx0gbdaml0my"]
+
+[ext_resource type="Script" path="res://levels/maintenanced.gd" id="1_jocdl"]
+[ext_resource type="PackedScene" uid="uid://3pqlp2xx3fm1" path="res://entities/Player.tscn" id="2_roixx"]
+[ext_resource type="Texture2D" uid="uid://bixgfk718vak1" path="res://sprites/Terrain/ground0.png" id="3_pe1v8"]
+[ext_resource type="AudioStream" uid="uid://ogyqj78it01e" path="res://music/IMSLP77970-PMLP04739-Mussorgsky-NightBaldMtbRK.MO.mp3" id="4_eglx1"]
+[ext_resource type="PackedScene" uid="uid://dpk8ujby4gyus" path="res://redstone/RedstoneActuator.tscn" id="6_3nfta"]
+[ext_resource type="PackedScene" uid="uid://dmptmdbb454vm" path="res://blocks/ActuatorCyan.tscn" id="6_6eimr"]
+[ext_resource type="PackedScene" uid="uid://dbkkfb6pvnoyv" path="res://redstone/RedstoneWire.tscn" id="7_0ktvj"]
+[ext_resource type="PackedScene" uid="uid://cksek2twhjv5y" path="res://blocks/ActuatorRed.tscn" id="7_imnm5"]
+[ext_resource type="PackedScene" uid="uid://bakq6s8et5ijb" path="res://blocks/PressurePad.tscn" id="8_6ihbj"]
+[ext_resource type="PackedScene" uid="uid://bg2j8cub5fs7t" path="res://redstone/PressureSensor.tscn" id="8_432cs"]
+[ext_resource type="PackedScene" uid="uid://c23o4osicdorm" path="res://blocks/Spike.tscn" id="9_ft1ya"]
+[ext_resource type="PackedScene" uid="uid://borsycevvvxee" path="res://redstone/RedstonePiston.tscn" id="9_pu103"]
+[ext_resource type="PackedScene" uid="uid://dxprtfi2fayce" path="res://redstone/RedstoneDiode.tscn" id="9_vxfcj"]
+[ext_resource type="PackedScene" uid="uid://chudhsesi7x7e" path="res://redstone/RedstoneInverter.tscn" id="10_7oxir"]
+[ext_resource type="PackedScene" uid="uid://bdru15b5cfmqi" path="res://entities/FallingBlock.tscn" id="10_fmsm5"]
+[ext_resource type="PackedScene" uid="uid://djpm56bmne5v" path="res://redstone/MovableBlock.tscn" id="10_p33mk"]
+[ext_resource type="PackedScene" uid="uid://c73sqxmwucltm" path="res://redstone/RedstoneLever.tscn" id="12_e021e"]
+[ext_resource type="PackedScene" uid="uid://cjxr5alrnaycu" path="res://blocks/YellowOrb.tscn" id="14_em8ma"]
+[ext_resource type="PackedScene" uid="uid://cdqs46mdjxtat" path="res://redstone/StickyPiston.tscn" id="15_rjhrp"]
+[ext_resource type="PackedScene" uid="uid://dk3r0sx7tqv76" path="res://blocks/Launcher.tscn" id="18_1l41q"]
+[ext_resource type="PackedScene" uid="uid://dj00i7ggodk6l" path="res://blocks/Checkpoint.tscn" id="20_jrkas"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8j3n"]
+texture = ExtResource("3_pe1v8")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/bottom_right_corner = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/top_side = 0
+2:0/0/terrains_peering_bit/top_right_corner = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/terrains_peering_bit/right_side = 0
+3:0/0/terrains_peering_bit/bottom_right_corner = 0
+3:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0/terrains_peering_bit/bottom_left_corner = 0
+3:0/0/terrains_peering_bit/left_side = 0
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrain = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/terrains_peering_bit/right_side = 0
+4:0/0/terrains_peering_bit/bottom_side = 0
+5:0/0 = 0
+5:0/0/terrain_set = 0
+5:0/0/terrain = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/terrains_peering_bit/bottom_side = 0
+5:0/0/terrains_peering_bit/left_side = 0
+6:0/0 = 0
+6:0/0/terrain_set = 0
+6:0/0/terrain = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0/terrains_peering_bit/right_side = 0
+6:0/0/terrains_peering_bit/bottom_side = 0
+6:0/0/terrains_peering_bit/bottom_left_corner = 0
+6:0/0/terrains_peering_bit/left_side = 0
+6:0/0/terrains_peering_bit/top_left_corner = 0
+6:0/0/terrains_peering_bit/top_side = 0
+6:0/0/terrains_peering_bit/top_right_corner = 0
+7:0/0 = 0
+7:0/0/terrain_set = 0
+7:0/0/terrain = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0/terrains_peering_bit/right_side = 0
+7:0/0/terrains_peering_bit/bottom_right_corner = 0
+7:0/0/terrains_peering_bit/bottom_side = 0
+7:0/0/terrains_peering_bit/left_side = 0
+7:0/0/terrains_peering_bit/top_left_corner = 0
+7:0/0/terrains_peering_bit/top_side = 0
+7:0/0/terrains_peering_bit/top_right_corner = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0/terrains_peering_bit/top_side = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0/terrains_peering_bit/right_side = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_left_corner = 0
+2:1/0/terrains_peering_bit/top_side = 0
+2:1/0/terrains_peering_bit/top_right_corner = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0/terrains_peering_bit/bottom_side = 0
+3:1/0/terrains_peering_bit/bottom_left_corner = 0
+3:1/0/terrains_peering_bit/left_side = 0
+3:1/0/terrains_peering_bit/top_left_corner = 0
+3:1/0/terrains_peering_bit/top_side = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+4:1/0/terrain = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0/terrains_peering_bit/right_side = 0
+4:1/0/terrains_peering_bit/top_side = 0
+5:1/0 = 0
+5:1/0/terrain_set = 0
+5:1/0/terrain = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0/terrains_peering_bit/left_side = 0
+5:1/0/terrains_peering_bit/top_side = 0
+6:1/0 = 0
+6:1/0/terrain_set = 0
+6:1/0/terrain = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0/terrains_peering_bit/right_side = 0
+6:1/0/terrains_peering_bit/bottom_right_corner = 0
+6:1/0/terrains_peering_bit/bottom_side = 0
+6:1/0/terrains_peering_bit/bottom_left_corner = 0
+6:1/0/terrains_peering_bit/left_side = 0
+6:1/0/terrains_peering_bit/top_left_corner = 0
+6:1/0/terrains_peering_bit/top_side = 0
+7:1/0 = 0
+7:1/0/terrain_set = 0
+7:1/0/terrain = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0/terrains_peering_bit/right_side = 0
+7:1/0/terrains_peering_bit/bottom_right_corner = 0
+7:1/0/terrains_peering_bit/bottom_side = 0
+7:1/0/terrains_peering_bit/bottom_left_corner = 0
+7:1/0/terrains_peering_bit/left_side = 0
+7:1/0/terrains_peering_bit/top_side = 0
+7:1/0/terrains_peering_bit/top_right_corner = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/terrains_peering_bit/right_side = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/terrains_peering_bit/bottom_side = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/terrains_peering_bit/right_side = 0
+2:2/0/terrains_peering_bit/bottom_side = 0
+2:2/0/terrains_peering_bit/bottom_left_corner = 0
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_side = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0/terrains_peering_bit/right_side = 0
+3:2/0/terrains_peering_bit/bottom_side = 0
+3:2/0/terrains_peering_bit/left_side = 0
+3:2/0/terrains_peering_bit/top_left_corner = 0
+3:2/0/terrains_peering_bit/top_side = 0
+3:2/0/terrains_peering_bit/top_right_corner = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+4:2/0/terrain = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0/terrains_peering_bit/bottom_side = 0
+4:2/0/terrains_peering_bit/top_side = 0
+5:2/0 = 0
+5:2/0/terrain_set = 0
+5:2/0/terrain = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0/terrains_peering_bit/right_side = 0
+5:2/0/terrains_peering_bit/left_side = 0
+6:2/0 = 0
+6:2/0/terrain_set = 0
+6:2/0/terrain = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0/terrains_peering_bit/right_side = 0
+6:2/0/terrains_peering_bit/bottom_side = 0
+6:2/0/terrains_peering_bit/top_side = 0
+7:2/0 = 0
+7:2/0/terrain_set = 0
+7:2/0/terrain = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0/terrains_peering_bit/right_side = 0
+7:2/0/terrains_peering_bit/bottom_side = 0
+7:2/0/terrains_peering_bit/left_side = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0/terrains_peering_bit/top_side = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrain = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0/terrains_peering_bit/left_side = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrain = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/terrains_peering_bit/right_side = 0
+2:3/0/terrains_peering_bit/bottom_right_corner = 0
+2:3/0/terrains_peering_bit/bottom_side = 0
+2:3/0/terrains_peering_bit/bottom_left_corner = 0
+2:3/0/terrains_peering_bit/left_side = 0
+2:3/0/terrains_peering_bit/top_side = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0/terrains_peering_bit/right_side = 0
+3:3/0/terrains_peering_bit/bottom_right_corner = 0
+3:3/0/terrains_peering_bit/bottom_side = 0
+3:3/0/terrains_peering_bit/left_side = 0
+3:3/0/terrains_peering_bit/top_side = 0
+3:3/0/terrains_peering_bit/top_right_corner = 0
+4:3/0 = 0
+4:3/0/terrain_set = 0
+4:3/0/terrain = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0/terrains_peering_bit/right_side = 0
+4:3/0/terrains_peering_bit/bottom_side = 0
+4:3/0/terrains_peering_bit/left_side = 0
+4:3/0/terrains_peering_bit/top_side = 0
+5:3/0 = 0
+5:3/0/terrain_set = 0
+5:3/0/terrain = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0/terrains_peering_bit/right_side = 0
+5:3/0/terrains_peering_bit/bottom_right_corner = 0
+5:3/0/terrains_peering_bit/bottom_side = 0
+5:3/0/terrains_peering_bit/bottom_left_corner = 0
+5:3/0/terrains_peering_bit/left_side = 0
+5:3/0/terrains_peering_bit/top_left_corner = 0
+5:3/0/terrains_peering_bit/top_side = 0
+5:3/0/terrains_peering_bit/top_right_corner = 0
+6:3/0 = 0
+6:3/0/terrain_set = 0
+6:3/0/terrain = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0/terrains_peering_bit/right_side = 0
+6:3/0/terrains_peering_bit/left_side = 0
+6:3/0/terrains_peering_bit/top_side = 0
+7:3/0 = 0
+7:3/0/terrain_set = 0
+7:3/0/terrain = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0/terrains_peering_bit/bottom_side = 0
+7:3/0/terrains_peering_bit/left_side = 0
+7:3/0/terrains_peering_bit/top_side = 0
+0:4/0 = 0
+0:4/0/terrain_set = 0
+0:4/0/terrain = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0/terrains_peering_bit/right_side = 0
+0:4/0/terrains_peering_bit/bottom_right_corner = 0
+0:4/0/terrains_peering_bit/bottom_side = 0
+0:4/0/terrains_peering_bit/left_side = 0
+1:4/0 = 0
+1:4/0/terrain_set = 0
+1:4/0/terrain = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0/terrains_peering_bit/bottom_side = 0
+1:4/0/terrains_peering_bit/bottom_left_corner = 0
+1:4/0/terrains_peering_bit/left_side = 0
+1:4/0/terrains_peering_bit/top_side = 0
+2:4/0 = 0
+2:4/0/terrain_set = 0
+2:4/0/terrain = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0/terrains_peering_bit/right_side = 0
+2:4/0/terrains_peering_bit/bottom_right_corner = 0
+2:4/0/terrains_peering_bit/bottom_side = 0
+2:4/0/terrains_peering_bit/top_side = 0
+3:4/0 = 0
+3:4/0/terrain_set = 0
+3:4/0/terrain = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0/terrains_peering_bit/right_side = 0
+3:4/0/terrains_peering_bit/bottom_side = 0
+3:4/0/terrains_peering_bit/bottom_left_corner = 0
+3:4/0/terrains_peering_bit/left_side = 0
+4:4/0 = 0
+4:4/0/terrain_set = 0
+4:4/0/terrain = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0/terrains_peering_bit/right_side = 0
+4:4/0/terrains_peering_bit/bottom_side = 0
+4:4/0/terrains_peering_bit/bottom_left_corner = 0
+4:4/0/terrains_peering_bit/left_side = 0
+4:4/0/terrains_peering_bit/top_side = 0
+4:4/0/terrains_peering_bit/top_right_corner = 0
+5:4/0 = 0
+5:4/0/terrain_set = 0
+5:4/0/terrain = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:4/0/terrains_peering_bit/right_side = 0
+5:4/0/terrains_peering_bit/bottom_right_corner = 0
+5:4/0/terrains_peering_bit/bottom_side = 0
+5:4/0/terrains_peering_bit/left_side = 0
+5:4/0/terrains_peering_bit/top_left_corner = 0
+5:4/0/terrains_peering_bit/top_side = 0
+6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:5/0 = 0
+0:5/0/terrain_set = 0
+0:5/0/terrain = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:5/0/terrains_peering_bit/right_side = 0
+0:5/0/terrains_peering_bit/bottom_side = 0
+0:5/0/terrains_peering_bit/top_side = 0
+0:5/0/terrains_peering_bit/top_right_corner = 0
+1:5/0 = 0
+1:5/0/terrain_set = 0
+1:5/0/terrain = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0/terrains_peering_bit/right_side = 0
+1:5/0/terrains_peering_bit/left_side = 0
+1:5/0/terrains_peering_bit/top_left_corner = 0
+1:5/0/terrains_peering_bit/top_side = 0
+2:5/0 = 0
+2:5/0/terrain_set = 0
+2:5/0/terrain = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:5/0/terrains_peering_bit/right_side = 0
+2:5/0/terrains_peering_bit/left_side = 0
+2:5/0/terrains_peering_bit/top_side = 0
+2:5/0/terrains_peering_bit/top_right_corner = 0
+3:5/0 = 0
+3:5/0/terrain_set = 0
+3:5/0/terrain = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0/terrains_peering_bit/bottom_side = 0
+3:5/0/terrains_peering_bit/left_side = 0
+3:5/0/terrains_peering_bit/top_left_corner = 0
+3:5/0/terrains_peering_bit/top_side = 0
+4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:5/0 = 0
+6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:5/0 = 0
+7:5/0/terrain_set = 0
+7:5/0/terrain = 0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_2r5js"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Ground"
+terrain_set_0/terrain_0/color = Color(1, 0, 0, 1)
+sources/0 = SubResource("TileSetAtlasSource_t8j3n")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_jocdl")
+metadata/_edit_vertical_guides_ = [496.0]
+
+[node name="Player" parent="." instance=ExtResource("2_roixx")]
+position = Vector2(32, -584)
+
+[node name="TextureRect" type="TextureRect" parent="Player"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.991575, 0.992314)
+metadata/_edit_use_anchors_ = true
+
+[node name="PLAYER_CAM" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(32, -584)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_2r5js")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2162681, 196608, 1, -2228217, 196608, 1, -2293753, 196608, 1, -2359289, 65536, 0, -2162682, 327680, 3, -2228218, 327680, 3, -2293754, 327680, 3, -2359290, 196608, 0, -2162683, 327680, 3, -2228219, 327680, 3, -2293755, 327680, 3, -2359291, 196608, 0, -2162684, 327680, 3, -2228220, 327680, 3, -2293756, 327680, 3, -2359292, 196608, 0, -2162685, 327680, 3, -2228221, 327680, 3, -2293757, 327680, 3, -2359293, 196608, 0, -2162686, 327680, 3, -2228222, 327680, 3, -2293758, 327680, 3, -2359294, 196608, 0, -2162687, 327680, 3, -2228223, 327680, 3, -2293759, 327680, 3, -2359295, 196608, 0, -2162688, 131072, 0, -2228224, 131072, 0, -2293760, 131072, 0, -2359296, 131072, 4, -2162669, 393216, 1, -2228205, 196608, 1, -2293741, 196608, 1, -2359277, 65536, 0, -2162670, 327680, 3, -2228206, 327680, 3, -2293742, 327680, 3, -2359278, 196608, 0, -2162671, 327680, 3, -2228207, 327680, 3, -2293743, 327680, 3, -2359279, 196608, 0, -2162672, 327680, 3, -2228208, 327680, 3, -2293744, 327680, 3, -2359280, 196608, 0, -2162673, 327680, 3, -2228209, 327680, 3, -2293745, 327680, 3, -2359281, 196608, 0, -2162674, 327680, 3, -2228210, 327680, 3, -2293746, 327680, 3, -2359282, 196608, 0, -2162675, 327680, 3, -2228211, 327680, 3, -2293747, 327680, 3, -2359283, 196608, 0, -2162676, 327680, 3, -2228212, 327680, 3, -2293748, 327680, 3, -2359284, 196608, 0, -2162677, 131072, 0, -2228213, 131072, 0, -2293749, 131072, 0, -2359285, 0, 0, -2424832, 262144, 2, -2490368, 262144, 2, -2555904, 262144, 2, -2621440, 262144, 2, -2686976, 262144, 2, -2752512, 262144, 2, -2818048, 262144, 0, -2818029, 0, 4, -2818030, 327680, 2, -2818031, 327680, 2, -2818032, 327680, 2, -2818033, 327680, 2, -2818034, 327680, 2, -2818035, 327680, 2, -2818036, 327680, 2, -2818037, 327680, 2, -2818038, 327680, 2, -2818039, 327680, 2, -2818040, 327680, 2, -2818041, 327680, 2, -2818042, 327680, 2, -2818043, 327680, 2, -2818044, 327680, 2, -2818045, 327680, 2, -2818046, 327680, 2, -2818047, 327680, 2, -2621421, 0, 1, -2686957, 131072, 0, -2752493, 131072, 0, -2621415, 196608, 5, -2621416, 131072, 1, -2621417, 131072, 1, -2621418, 131072, 1, -2621419, 131072, 1, -2621420, 131072, 1, -2424807, 0, 1, -2490343, 131072, 4, -2555879, 262144, 2, -2162663, 196608, 0, -2162664, 196608, 0, -2162665, 196608, 0, -2162666, 196608, 0, -2162667, 196608, 0, -2162668, 196608, 0, -2097127, 131072, 1, -2097128, 131072, 1, -2097129, 131072, 1, -2097130, 131072, 1, -2097131, 131072, 1, -2097132, 131072, 1, -2097133, 131072, 1, -2097134, 131072, 1, -2097135, 131072, 1, -2097136, 131072, 1, -2097137, 131072, 1, -2097138, 131072, 1, -2097139, 131072, 1, -2097140, 131072, 1, -2097141, 131072, 5, -2097142, 327680, 2, -2097143, 327680, 2, -2097144, 327680, 2, -2097145, 65536, 5, -2097146, 131072, 1, -2097147, 131072, 1, -2097148, 131072, 1, -2097149, 131072, 1, -2097150, 131072, 1, -2097151, 131072, 1, -2097152, 0, 1, -2424806, 131072, 1, -2490342, 196608, 0, -2097119, 196608, 5, -2162655, 65536, 0, -2097120, 131072, 1, -2162656, 196608, 0, -2097121, 131072, 1, -2162657, 196608, 0, -2097122, 131072, 1, -2162658, 196608, 0, -2097123, 131072, 1, -2162659, 196608, 0, -2097124, 131072, 1, -2162660, 196608, 0, -2097125, 131072, 1, -2162661, 196608, 0, -2097126, 131072, 1, -2162662, 196608, 0, -2097113, 65536, 1, -2162649, 65536, 0, -2097114, 131072, 1, -2162650, 196608, 0, -2097115, 0, 1, -2162651, 0, 0, -1966047, 262144, 1, -2031583, 262144, 2, -1966040, 327680, 2, -1966041, 327680, 2, -1966042, 327680, 2, -1966043, 327680, 2, -1966044, 327680, 2, -1966045, 327680, 2, -1966046, 327680, 2, -2686943, 131072, 0, -2752479, 458752, 0, -2818015, 196608, 0, -2752481, 131072, 1, -2818017, 196608, 0, -2752482, 131072, 1, -2818018, 196608, 0, -2752483, 131072, 1, -2818019, 196608, 0, -2752484, 131072, 1, -2818020, 196608, 0, -2752485, 131072, 1, -2818021, 196608, 0, -2752486, 131072, 1, -2818022, 196608, 0, -2686951, 196608, 1, -2752487, 393216, 0, -2818023, 196608, 0, -2686952, 327680, 3, -2752488, 327680, 3, -2818024, 196608, 0, -2686953, 327680, 3, -2752489, 327680, 3, -2818025, 196608, 0, -2686954, 327680, 3, -2752490, 327680, 3, -2818026, 196608, 0, -2686955, 327680, 3, -2752491, 327680, 3, -2818027, 196608, 0, -2686956, 327680, 3, -2752492, 327680, 3, -2818028, 196608, 0, -2424799, 65536, 1, -2490335, 65536, 4, -2555871, 0, 5, -2621407, 131072, 0, -2424800, 131072, 1, -2490336, 196608, 0, -2424801, 131072, 1, -2490337, 196608, 0, -2424802, 131072, 1, -2490338, 196608, 0, -2424803, 131072, 1, -2490339, 196608, 0, -2424804, 131072, 1, -2490340, 196608, 0, -2424805, 131072, 1, -2490341, 196608, 0, -2555865, 131072, 1, -2621401, 327680, 3, -2686937, 327680, 3, -2752473, 327680, 3, -2818009, 196608, 0, -2555866, 131072, 1, -2621402, 327680, 3, -2686938, 327680, 3, -2752474, 327680, 3, -2818010, 196608, 0, -2555867, 131072, 1, -2621403, 327680, 3, -2686939, 327680, 3, -2752475, 327680, 3, -2818011, 196608, 0, -2555868, 131072, 1, -2621404, 327680, 3, -2686940, 327680, 3, -2752476, 327680, 3, -2818012, 196608, 0, -2555869, 131072, 1, -2621405, 327680, 3, -2686941, 327680, 3, -2752477, 327680, 3, -2818013, 196608, 0, -2555870, 131072, 1, -2621406, 327680, 3, -2686942, 327680, 3, -2752478, 327680, 3, -2818014, 196608, 0, -1966037, 327680, 2, -1966038, 327680, 2, -1966039, 327680, 2, -2097104, 65536, 1, -2162640, 65536, 0, -2097105, 131072, 1, -2162641, 196608, 0, -2097106, 131072, 1, -2162642, 196608, 0, -2097107, 131072, 1, -2162643, 196608, 0, -2097108, 131072, 1, -2162644, 196608, 0, -2097109, 0, 1, -2162645, 0, 0, -1966032, 65536, 3, -1966033, 327680, 2, -1966034, 327680, 2, -1966035, 327680, 2, -1966036, 327680, 2, -2555853, 131072, 1, -2621389, 327680, 3, -2686925, 327680, 3, -2752461, 327680, 3, -2817997, 196608, 0, -2555855, 131072, 1, -2621391, 327680, 3, -2686927, 327680, 3, -2752463, 327680, 3, -2817999, 196608, 0, -2555856, 131072, 1, -2621392, 327680, 3, -2686928, 327680, 3, -2752464, 327680, 3, -2818000, 196608, 0, -2555857, 131072, 1, -2621393, 327680, 3, -2686929, 327680, 3, -2752465, 327680, 3, -2818001, 196608, 0, -2555858, 131072, 1, -2621394, 327680, 3, -2686930, 327680, 3, -2752466, 327680, 3, -2818002, 196608, 0, -2555859, 131072, 1, -2621395, 327680, 3, -2686931, 327680, 3, -2752467, 327680, 3, -2818003, 196608, 0, -2555860, 131072, 1, -2621396, 327680, 3, -2686932, 327680, 3, -2752468, 327680, 3, -2818004, 196608, 0, -2555861, 131072, 1, -2621397, 327680, 3, -2686933, 327680, 3, -2752469, 327680, 3, -2818005, 196608, 0, -2555862, 131072, 1, -2621398, 327680, 3, -2686934, 327680, 3, -2752470, 327680, 3, -2818006, 196608, 0, -2555863, 131072, 1, -2621399, 327680, 3, -2686935, 327680, 3, -2752471, 327680, 3, -2818007, 196608, 0, -2555864, 131072, 1, -2621400, 327680, 3, -2686936, 327680, 3, -2752472, 327680, 3, -2818008, 196608, 0, -1966022, 131072, 1, -1966023, 131072, 1, -1966024, 131072, 1, -1966025, 131072, 1, -1966026, 131072, 1, -1966027, 131072, 1, -1966028, 0, 1, -2031558, 196608, 0, -2162630, 0, 1, -2031559, 196608, 0, -2031560, 393216, 1, -2097096, 65536, 0, -2031561, 327680, 3, -2097097, 196608, 0, -2031562, 327680, 3, -2097098, 196608, 0, -2031563, 327680, 3, -2097099, 196608, 0, -2031564, 131072, 0, -2097100, 131072, 4, -2162636, 65536, 2, -2162653, 458752, 5, -2162647, 458752, 5, -2752480, 131072, 1, -2818016, 196608, 0, -2555854, 131072, 1, -2621390, 327680, 3, -2686926, 327680, 3, -2752462, 327680, 3, -2817998, 196608, 0, -2228166, 458752, 0, -2228167, 131072, 1, -2228168, 131072, 5, -2228169, 327680, 2, -1966020, 131072, 1, -2031556, 196608, 0, -2162628, 131072, 1, -2228164, 327680, 3, -2293700, 327680, 3, -1966021, 131072, 1, -2031557, 196608, 0, -2162629, 131072, 1, -2228165, 327680, 3, -2293701, 327680, 3, -2293702, 458752, 1, -1966017, 131072, 1, -2031553, 196608, 0, -2162625, 65536, 1, -2228161, 196608, 1, -2293697, 196608, 1, -2359233, 196608, 1, -1966018, 131072, 1, -2031554, 196608, 0, -2162626, 131072, 1, -2228162, 327680, 3, -2293698, 327680, 3, -2359234, 327680, 3, -1966019, 131072, 1, -2031555, 196608, 0, -2162627, 131072, 1, -2228163, 327680, 3, -2293699, 327680, 3, -2359235, 327680, 3, -2490311, 65536, 1, -2555847, 393216, 0, -2490312, 131072, 1, -2555848, 327680, 3, -2490313, 131072, 1, -2555849, 327680, 3, -2490314, 131072, 1, -2555850, 327680, 3, -2490315, 131072, 1, -2555851, 327680, 3, -2490316, 0, 1, -2555852, 458752, 0, -2621377, 65536, 1, -2686913, 393216, 0, -2752449, 327680, 3, -2817985, 196608, 0, -2621378, 131072, 1, -2686914, 327680, 3, -2752450, 327680, 3, -2817986, 196608, 0, -2621379, 131072, 1, -2686915, 327680, 3, -2752451, 327680, 3, -2817987, 196608, 0, -2621380, 393216, 0, -2686916, 327680, 3, -2752452, 327680, 3, -2817988, 196608, 0, -2621381, 327680, 3, -2686917, 327680, 3, -2752453, 327680, 3, -2817989, 196608, 0, -2621382, 327680, 3, -2686918, 327680, 3, -2752454, 327680, 3, -2817990, 196608, 0, -2621383, 327680, 3, -2686919, 327680, 3, -2752455, 327680, 3, -2817991, 196608, 0, -2621384, 327680, 3, -2686920, 327680, 3, -2752456, 327680, 3, -2817992, 196608, 0, -2621385, 327680, 3, -2686921, 327680, 3, -2752457, 327680, 3, -2817993, 196608, 0, -2621386, 327680, 3, -2686922, 327680, 3, -2752458, 327680, 3, -2817994, 196608, 0, -2621387, 327680, 3, -2686923, 327680, 3, -2752459, 327680, 3, -2817995, 196608, 0, -2621388, 327680, 3, -2686924, 327680, 3, -2752460, 327680, 3, -2817996, 196608, 0, -2555844, 65536, 1, -2555845, 131072, 1, -2555846, 131072, 1, -2359227, 65536, 0, -2359228, 196608, 0, -2359229, 0, 0, -2293691, 65536, 1, -2293692, 131072, 1, -2293693, 0, 1, -2293685, 65536, 1, -2359221, 65536, 0, -2293686, 131072, 1, -2359222, 196608, 0, -2293687, 0, 1, -2359223, 0, 0, -2686905, 65536, 1, -2752441, 196608, 1, -2817977, 65536, 0, -2686906, 131072, 1, -2752442, 327680, 3, -2817978, 196608, 0, -2686907, 131072, 1, -2752443, 327680, 3, -2817979, 196608, 0, -2686908, 131072, 1, -2752444, 327680, 3, -2817980, 196608, 0, -2686909, 131072, 1, -2752445, 327680, 3, -2817981, 196608, 0, -2686910, 131072, 1, -2752446, 327680, 3, -2817982, 196608, 0, -2686911, 131072, 1, -2752447, 327680, 3, -2817983, 196608, 0, -2752448, 327680, 3, -2817984, 196608, 0, -2686912, 131072, 1, -2293676, 131072, 1, -2359212, 458752, 1, -2293677, 131072, 1, -2359213, 196608, 0, -2293678, 131072, 1, -2359214, 196608, 0, -2293679, 131072, 1, -2359215, 196608, 0, -2293680, 131072, 1, -2359216, 196608, 0, -2293681, 0, 1, -2359217, 0, 0, -2424748, 131072, 0, -2293674, 65536, 1, -2359210, 196608, 1, -2424746, 393216, 0, -2293675, 131072, 1, -2359211, 327680, 3, -2424747, 327680, 3, -2490282, 196608, 0, -2490283, 196608, 0, -2490284, 0, 0, -1965993, 131072, 1, -2031529, 196608, 0, -1965994, 131072, 1, -2031530, 196608, 0, -1965995, 131072, 1, -2031531, 196608, 0, -1965996, 131072, 1, -2031532, 196608, 0, -1965997, 131072, 1, -2031533, 196608, 0, -1965998, 0, 1, -2031534, 0, 0, -1966002, 65536, 1, -2031538, 65536, 0, -1966003, 131072, 1, -2031539, 196608, 0, -1966004, 131072, 1, -2031540, 196608, 0, -1966005, 131072, 1, -2031541, 196608, 0, -1966006, 131072, 1, -2031542, 196608, 0, -1966007, 131072, 1, -2031543, 196608, 0, -1966008, 131072, 1, -2031544, 196608, 0, -1966009, 131072, 1, -2031545, 196608, 0, -1966010, 131072, 1, -2031546, 196608, 0, -1966011, 131072, 1, -2031547, 196608, 0, -1966012, 131072, 1, -2031548, 196608, 0, -1966013, 131072, 1, -2031549, 196608, 0, -1966014, 131072, 1, -2031550, 196608, 0, -1966015, 131072, 1, -2031551, 196608, 0, -1966016, 131072, 1, -2031552, 196608, 0, -1965986, 65536, 1, -2031522, 196608, 1, -1965987, 131072, 1, -2031523, 458752, 1, -1965988, 131072, 1, -2031524, 196608, 0, -1965989, 131072, 1, -2031525, 196608, 0, -1965990, 131072, 1, -2031526, 196608, 0, -1965991, 131072, 1, -2031527, 196608, 0, -1965992, 131072, 1, -2031528, 196608, 0, -2097058, 196608, 1, -2162594, 196608, 1, -2228130, 196608, 1, -2293666, 196608, 1, -2359202, 196608, 1, -2424738, 393216, 0, -2490274, 196608, 0, -2097059, 131072, 0, -2162595, 131072, 0, -2228131, 131072, 0, -2293667, 131072, 0, -2359203, 131072, 0, -2424739, 131072, 0, -2490275, 0, 0, -2424743, 65536, 1, -2490279, 196608, 1, -2424744, 131072, 1, -2490280, 458752, 1, -2424745, 131072, 1, -2490281, 196608, 0, -2424735, 65536, 1, -2490271, 196608, 1, -2424736, 131072, 1, -2490272, 458752, 1, -2424737, 131072, 1, -2490273, 196608, 0, -2424769, 196608, 1, -2490305, 65536, 0, -2424770, 458752, 1, -2490306, 0, 0, -2424771, 196608, 0, -2359236, 458752, 1, -2424772, 0, 0, -2359237, 196608, 0, -2359238, 0, 0, -2293703, 196608, 0, -2293704, 0, 0, -2228170, 0, 2, -2555807, 196608, 1, -2621343, 196608, 1, -2686879, 196608, 1, -2752415, 196608, 1, -2817951, 196608, 1, -2883487, 196608, 1, -2949023, 196608, 1, -3014559, 196608, 1, -3080095, 196608, 1, -3145631, 65536, 0, -2555808, 131072, 0, -2621344, 131072, 0, -2686880, 131072, 0, -2752416, 131072, 0, -2817952, 131072, 0, -2883488, 131072, 0, -2949024, 131072, 0, -3014560, 131072, 0, -3080096, 131072, 0, -3145632, 0, 4, -2817957, 327680, 2, -2817958, 327680, 2, -2817959, 327680, 2, -2817960, 327680, 2, -2817961, 327680, 2, -2817962, 327680, 2, -2817963, 327680, 2, -2817964, 327680, 2, -2817965, 327680, 2, -2817966, 327680, 2, -2817967, 327680, 2, -2817968, 327680, 2, -2817969, 327680, 2, -2817970, 327680, 2, -2817971, 327680, 2, -2817972, 327680, 2, -2817973, 327680, 2, -2817974, 0, 2, -2555815, 65536, 0, -2555816, 0, 0, -2817956, 327680, 0, -2752420, 0, 3, -1703854, 262144, 2, -1769390, 65536, 2, -1703858, 327680, 0, -1703859, 327680, 2, -1703860, 327680, 2, -1703861, 327680, 2, -1703862, 327680, 2, -1703863, 327680, 2, -1703864, 327680, 2, -1703865, 327680, 2, -1703866, 327680, 2, -1703867, 327680, 2, -1703868, 327680, 2, -1703869, 327680, 2, -1703870, 327680, 2, -1703871, 327680, 2, -1703872, 327680, 2, -1703873, 327680, 2, -1703874, 327680, 2, -1703875, 327680, 2, -1703876, 327680, 2, -1703877, 327680, 2, -1703878, 327680, 2, -1703879, 327680, 2, -1703880, 327680, 2, -1703881, 327680, 2, -1703882, 327680, 2, -1703883, 327680, 2, -1703884, 262144, 0, -1703888, 262144, 2, -1769424, 65536, 2, -1638349, 327680, 2, -1638350, 327680, 2, -1638351, 327680, 2, -1638352, 262144, 1, -1638348, 327680, 1, -1638318, 327680, 1, -1638319, 327680, 2, -1638320, 327680, 2, -1638321, 327680, 2, -1638322, 262144, 1, -3145633, 327680, 2, -3145634, 327680, 2, -3145635, 327680, 2, -3145636, 262144, 1, -3145640, 65536, 0, -3145641, 196608, 0, -3145642, 196608, 0, -3145643, 196608, 0, -3145644, 0, 0, -3080104, 65536, 1, -3080105, 131072, 1, -3080106, 131072, 1, -3080107, 131072, 1, -3080108, 0, 1, -3211172, 262144, 2, -3276708, 262144, 2, -3342244, 262144, 2, -3407780, 262144, 2, -3473316, 262144, 2, -3538852, 262144, 2, -3604388, 327680, 0, -3604389, 327680, 2, -3604390, 327680, 2, -3604391, 327680, 2, -3604392, 327680, 2, -3604393, 327680, 2, -3604394, 327680, 2, -3604395, 327680, 2, -3604396, 327680, 2, -3604397, 327680, 2, -3604398, 327680, 2, -3604399, 327680, 2, -3604400, 262144, 0, -3080112, 0, 3, -3145648, 262144, 2, -3211184, 262144, 2, -3276720, 262144, 2, -3342256, 262144, 2, -3407792, 262144, 2, -3473328, 262144, 2, -3538864, 262144, 2, -3407784, 65536, 3, -3407785, 327680, 2, -3407786, 327680, 2, -3407787, 327680, 2, -3407788, 0, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-512, -224)
+scale = Vector2(1.01836, 0.99132)
+stream = ExtResource("4_eglx1")
+autoplay = true
+max_distance = 100000.0
+
+[node name="Spike" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(152, -520)
+
+[node name="RedstoneActuator" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(520, -568)
+
+[node name="RedstoneActuator2" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(536, -568)
+
+[node name="RedstoneActuator3" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(536, -552)
+
+[node name="RedstoneActuator4" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(520, -552)
+
+[node name="RedstoneActuator5" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(520, -536)
+
+[node name="RedstoneActuator6" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(536, -536)
+
+[node name="RedstoneActuator7" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(616, -536)
+
+[node name="RedstoneActuator8" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(616, -552)
+
+[node name="RedstoneActuator9" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(616, -568)
+
+[node name="RedstoneActuator10" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(616, -584)
+
+[node name="RedstoneActuator11" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(616, -600)
+
+[node name="RedstoneActuator12" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(728, -536)
+
+[node name="RedstoneActuator13" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(728, -552)
+
+[node name="RedstoneActuator14" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(728, -568)
+
+[node name="RedstoneActuator15" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(728, -584)
+
+[node name="RedstoneActuator16" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(728, -600)
+
+[node name="RedstoneWire" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(520, -536)
+
+[node name="RedstoneWire2" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(520, -552)
+
+[node name="RedstoneWire3" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(520, -568)
+
+[node name="RedstoneWire4" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(536, -568)
+
+[node name="RedstoneWire5" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(536, -552)
+
+[node name="RedstoneWire6" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(536, -536)
+
+[node name="RedstoneWire7" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(616, -536)
+
+[node name="RedstoneWire8" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(616, -552)
+
+[node name="RedstoneWire9" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(616, -568)
+
+[node name="RedstoneWire10" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(616, -584)
+
+[node name="RedstoneWire11" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(616, -600)
+
+[node name="RedstoneWire12" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(728, -600)
+
+[node name="RedstoneWire13" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(728, -584)
+
+[node name="RedstoneWire14" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(728, -568)
+
+[node name="RedstoneWire15" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(728, -552)
+
+[node name="RedstoneWire16" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(728, -536)
+
+[node name="RedstoneWire17" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(728, -616)
+
+[node name="RedstoneWire20" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(760, -616)
+
+[node name="RedstoneWire38" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(760, -632)
+
+[node name="RedstoneWire40" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(760, -648)
+
+[node name="RedstoneWire48" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(808, -616)
+
+[node name="RedstoneWire87" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(760, -600)
+
+[node name="RedstoneWire88" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(808, -600)
+
+[node name="RedstoneWire49" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(808, -632)
+
+[node name="RedstoneWire50" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(808, -648)
+
+[node name="RedstoneWire51" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(808, -664)
+
+[node name="RedstoneWire52" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(808, -680)
+
+[node name="RedstoneWire53" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(792, -680)
+
+[node name="RedstoneWire41" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(744, -648)
+
+[node name="RedstoneWire42" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(728, -648)
+
+[node name="RedstoneWire43" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(712, -648)
+
+[node name="RedstoneWire44" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(696, -648)
+
+[node name="RedstoneWire45" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(680, -648)
+
+[node name="RedstoneWire46" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(664, -648)
+
+[node name="RedstoneWire47" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(648, -648)
+
+[node name="RedstoneWire54" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(776, -680)
+
+[node name="RedstoneWire55" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(760, -680)
+
+[node name="RedstoneWire56" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(744, -680)
+
+[node name="RedstoneWire57" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(728, -680)
+
+[node name="RedstoneWire58" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(712, -680)
+
+[node name="RedstoneWire59" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(696, -680)
+
+[node name="RedstoneWire60" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(680, -680)
+
+[node name="RedstoneWire61" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(664, -680)
+
+[node name="RedstoneWire63" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(632, -680)
+
+[node name="RedstoneWire64" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(616, -680)
+
+[node name="RedstoneWire65" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(600, -680)
+
+[node name="RedstoneWire66" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(584, -680)
+
+[node name="RedstoneWire67" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(568, -680)
+
+[node name="RedstoneWire68" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(552, -680)
+
+[node name="RedstoneWire69" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(536, -680)
+
+[node name="RedstoneWire70" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(520, -680)
+
+[node name="RedstoneWire72" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(504, -680)
+
+[node name="RedstoneWire74" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(472, -680)
+
+[node name="RedstoneWire75" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(456, -680)
+
+[node name="RedstoneWire76" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(440, -680)
+
+[node name="RedstoneWire77" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(424, -680)
+
+[node name="RedstoneWire78" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(408, -680)
+
+[node name="RedstoneWire79" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(392, -680)
+
+[node name="RedstoneWire80" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(376, -680)
+
+[node name="RedstoneWire81" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(360, -680)
+
+[node name="RedstoneWire82" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(344, -680)
+
+[node name="RedstoneWire71" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(520, -664)
+
+[node name="RedstoneWire18" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(712, -616)
+
+[node name="RedstoneWire19" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(696, -616)
+
+[node name="RedstoneWire21" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(664, -616)
+
+[node name="RedstoneWire22" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(648, -616)
+
+[node name="RedstoneWire23" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(632, -616)
+
+[node name="RedstoneWire24" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(616, -616)
+
+[node name="RedstoneWire25" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(600, -616)
+
+[node name="RedstoneWire26" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(584, -616)
+
+[node name="RedstoneWire27" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(568, -616)
+
+[node name="RedstoneWire28" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(552, -616)
+
+[node name="RedstoneWire29" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(536, -616)
+
+[node name="RedstoneWire32" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(536, -616)
+
+[node name="RedstoneWire36" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(504, -632)
+
+[node name="RedstoneWire73" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(488, -632)
+
+[node name="RedstoneWire86" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(488, -648)
+
+[node name="RedstoneWire37" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(504, -616)
+
+[node name="RedstoneWire33" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(392, -632)
+
+[node name="RedstoneWire34" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(392, -648)
+
+[node name="RedstoneWire62" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(312, -664)
+
+[node name="RedstoneWire85" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(296, -664)
+
+[node name="RedstoneWire83" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(328, -664)
+
+[node name="RedstoneWire84" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(344, -664)
+
+[node name="RedstoneWire35" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(408, -648)
+
+[node name="RedstoneWire39" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(392, -616)
+
+[node name="RedstoneWire30" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(536, -600)
+
+[node name="RedstoneWire31" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(536, -584)
+
+[node name="PressureSensor" parent="." instance=ExtResource("8_432cs")]
+position = Vector2(808, -600)
+
+[node name="PressureSensor2" parent="." instance=ExtResource("8_432cs")]
+position = Vector2(392, -616)
+
+[node name="PressureSensor5" parent="." instance=ExtResource("8_432cs")]
+position = Vector2(296, -664)
+
+[node name="RedstonePiston" parent="." instance=ExtResource("9_pu103")]
+position = Vector2(424, -648)
+
+[node name="MovableBlock" parent="." instance=ExtResource("10_p33mk")]
+position = Vector2(440, -648)
+
+[node name="MovableBlock2" parent="." instance=ExtResource("10_p33mk")]
+position = Vector2(456, -648)
+
+[node name="MovableBlock3" parent="." instance=ExtResource("10_p33mk")]
+position = Vector2(472, -648)
+
+[node name="MovableBlock4" parent="." instance=ExtResource("10_p33mk")]
+position = Vector2(472, -648)
+
+[node name="MovableBlock5" parent="." instance=ExtResource("10_p33mk")]
+position = Vector2(504, -648)
+
+[node name="PressureSensor3" parent="." instance=ExtResource("8_432cs")]
+position = Vector2(488, -648)
+
+[node name="RedstoneDiode5" parent="." instance=ExtResource("9_vxfcj")]
+position = Vector2(488, -680)
+rotation = 1.5708
+
+[node name="RedstoneDiode3" parent="." instance=ExtResource("9_vxfcj")]
+position = Vector2(648, -632)
+rotation = 3.14159
+
+[node name="RedstoneDiode4" parent="." instance=ExtResource("9_vxfcj")]
+position = Vector2(648, -680)
+rotation = -1.5708
+
+[node name="RedstoneDiode2" parent="." instance=ExtResource("9_vxfcj")]
+position = Vector2(680, -616)
+rotation = 1.5708
+
+[node name="PressureSensor4" parent="." instance=ExtResource("12_e021e")]
+position = Vector2(760, -600)
+
+[node name="RedstoneInverter" parent="." instance=ExtResource("10_7oxir")]
+position = Vector2(520, -616)
+rotation = 1.5708
+
+[node name="YellowOrb" parent="." instance=ExtResource("14_em8ma")]
+position = Vector2(248, -616)
+
+[node name="StickyPiston" parent="." instance=ExtResource("15_rjhrp")]
+position = Vector2(520, -648)
+rotation = 3.14159
+
+[node name="YellowOrb2" parent="." instance=ExtResource("14_em8ma")]
+position = Vector2(792, -568)
+
+[node name="RedstoneActuator17" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(552, -520)
+
+[node name="RedstoneActuator18" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(584, -520)
+
+[node name="RedstoneActuator19" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(648, -520)
+
+[node name="RedstoneActuator20" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(680, -520)
+
+[node name="RedstoneWire89" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(552, -520)
+
+[node name="RedstoneWire90" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(552, -504)
+
+[node name="RedstoneWire91" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(568, -504)
+
+[node name="RedstoneWire92" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(584, -504)
+
+[node name="RedstoneWire93" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(584, -520)
+
+[node name="RedstoneWire94" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(648, -504)
+
+[node name="RedstoneWire95" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(664, -504)
+
+[node name="RedstoneWire96" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(680, -504)
+
+[node name="RedstoneWire97" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(680, -520)
+
+[node name="RedstoneWire98" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(648, -520)
+
+[node name="RedstoneWire99" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(632, -504)
+
+[node name="RedstoneWire100" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(600, -504)
+
+[node name="RedstoneWire101" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(616, -504)
+
+[node name="RedstoneInverter2" parent="." instance=ExtResource("10_7oxir")]
+position = Vector2(616, -520)
+rotation = 3.14159
+
+[node name="Spike5" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(648, -488)
+
+[node name="Spike6" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(664, -488)
+
+[node name="Spike7" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(680, -488)
+
+[node name="Spike8" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(792, -408)
+
+[node name="Spike9" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(808, -408)
+
+[node name="Spike10" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(824, -408)
+
+[node name="Spike11" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(1272, -408)
+
+[node name="Spike12" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(1288, -408)
+
+[node name="Spike13" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(1304, -408)
+
+[node name="ActuatorRed" parent="." instance=ExtResource("7_imnm5")]
+position = Vector2(1032, -568)
+
+[node name="ActuatorRed2" parent="." instance=ExtResource("7_imnm5")]
+position = Vector2(1048, -568)
+
+[node name="ActuatorRed3" parent="." instance=ExtResource("7_imnm5")]
+position = Vector2(1064, -568)
+
+[node name="ActuatorRed4" parent="." instance=ExtResource("7_imnm5")]
+position = Vector2(1224, -568)
+
+[node name="ActuatorRed5" parent="." instance=ExtResource("7_imnm5")]
+position = Vector2(1240, -568)
+
+[node name="ActuatorRed6" parent="." instance=ExtResource("7_imnm5")]
+position = Vector2(1256, -568)
+
+[node name="ActuatorCyan" parent="." instance=ExtResource("6_6eimr")]
+position = Vector2(1128, -568)
+
+[node name="ActuatorCyan2" parent="." instance=ExtResource("6_6eimr")]
+position = Vector2(1144, -568)
+
+[node name="ActuatorCyan3" parent="." instance=ExtResource("6_6eimr")]
+position = Vector2(1160, -568)
+
+[node name="Launcher" parent="." instance=ExtResource("18_1l41q")]
+position = Vector2(1168, -664)
+rotation = 3.14159
+
+[node name="PressurePad" parent="." instance=ExtResource("8_6ihbj")]
+position = Vector2(1192, -648)
+
+[node name="Checkpoint" parent="." instance=ExtResource("20_jrkas")]
+position = Vector2(1432, -632)
+
+[node name="Spike2" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(1448, -504)
+
+[node name="Spike3" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(1464, -504)
+
+[node name="Spike4" parent="." instance=ExtResource("9_ft1ya")]
+position = Vector2(1480, -504)
+
+[node name="YellowOrb3" parent="." instance=ExtResource("14_em8ma")]
+position = Vector2(1448, -728)
+
+[node name="YellowOrb5" parent="." instance=ExtResource("14_em8ma")]
+position = Vector2(1512, -648)
+
+[node name="YellowOrb6" parent="." instance=ExtResource("14_em8ma")]
+position = Vector2(1512, -696)
+
+[node name="YellowOrb4" parent="." instance=ExtResource("14_em8ma")]
+position = Vector2(1320, -728)
+
+[node name="RedstoneActuator21" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(1416, -728)
+
+[node name="RedstoneActuator22" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(1416, -712)
+
+[node name="RedstoneActuator23" parent="." instance=ExtResource("6_3nfta")]
+position = Vector2(1416, -696)
+
+[node name="PressureSensor6" parent="." instance=ExtResource("12_e021e")]
+position = Vector2(1288, -712)
+
+[node name="RedstoneWire102" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1288, -712)
+
+[node name="RedstoneWire104" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1304, -712)
+
+[node name="RedstoneWire105" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1320, -712)
+
+[node name="RedstoneWire106" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1336, -712)
+
+[node name="RedstoneWire107" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1352, -712)
+
+[node name="RedstoneWire108" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1368, -712)
+
+[node name="RedstoneWire109" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1384, -712)
+
+[node name="RedstoneWire110" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1400, -712)
+
+[node name="RedstoneWire111" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1416, -728)
+
+[node name="RedstoneWire112" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1416, -712)
+
+[node name="RedstoneWire113" parent="." instance=ExtResource("7_0ktvj")]
+position = Vector2(1416, -696)
+
+[node name="FallingBlock" parent="." instance=ExtResource("10_fmsm5")]
+position = Vector2(1448, -808)

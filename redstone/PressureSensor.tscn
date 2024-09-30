@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg2j8cub5fs7t"]
+
+[ext_resource type="Script" path="res://redstone/PressureSensor.gd" id="1_oroji"]
+[ext_resource type="Texture2D" uid="uid://c3is88ocfi67x" path="res://sprites/Redstone/PressureSensor.png" id="1_oxakf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crss0"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1fyn"]
+size = Vector2(4, 4)
+
+[node name="PressureSensor" type="CharacterBody2D"]
+script = ExtResource("1_oroji")
+
+[node name="PressureArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressureArea2D"]
+shape = SubResource("RectangleShape2D_crss0")
+
+[node name="PressureSensorX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressureSensorX"]
+shape = SubResource("RectangleShape2D_k1fyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_oxakf")

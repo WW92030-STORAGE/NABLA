@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5chnw0e12fl5"]
+
+[ext_resource type="Script" path="res://LevelSelection.gd" id="1_5l8gf"]
+[ext_resource type="PackedScene" uid="uid://c6pdettmrbgtt" path="res://LevelGrid0.tscn" id="2_h3sb8"]
+[ext_resource type="PackedScene" uid="uid://4vubhhy0wx1w" path="res://LevelGrid1.tscn" id="3_c8vbr"]
+[ext_resource type="PackedScene" uid="uid://btafoodc0ukvf" path="res://Cursor.tscn" id="4_qnol2"]
+
+[sub_resource type="SystemFont" id="SystemFont_nw650"]
+font_names = PackedStringArray("Impact")
+hinting = 0
+subpixel_positioning = 0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 620.0
+offset_bottom = 340.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 680.0
+offset_bottom = 580.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 620.0
+offset_bottom = 340.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_5l8gf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TITLE" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_nw650")
+theme_override_font_sizes/font_size = 40
+text = "LEVEL TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+max_lines_visible = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_right = 1508.0
+offset_bottom = 250.0
+
+[node name="LevelGrid0" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("2_h3sb8")]
+layout_mode = 2
+
+[node name="LevelGrid1" parent="MarginContainer/VBoxContainer/HBoxContainer/Control/HBoxContainer" instance=ExtResource("3_c8vbr")]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Cursor" parent="." instance=ExtResource("4_qnol2")]
+position = Vector2(460, 628)
